@@ -1,4 +1,4 @@
-package frc.robot.swerve;
+package frc.robot.subsystems.swerve;
 
 import com.ctre.phoenix.sensors.PigeonIMU;
 import com.ctre.phoenix.sensors.PigeonIMU.PigeonState;

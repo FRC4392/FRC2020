@@ -1,12 +1,10 @@
-package frc.robot.swerve;
+package frc.robot.subsystems.swerve;
 
-import com.ctre.phoenix.ErrorCode;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.Spark;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class SwervePod {
     private static final int TICKS_PER_ROTATION = 4096;
