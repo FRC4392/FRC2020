@@ -52,12 +52,12 @@ public class Shooter extends SubsystemBase {
 
       kP = 5e-5;
       kI = 1e-6;
-      kD = 0;
-      kIz = 0;
-      kFF = 0;
-      kMaxOutput = 1;
-      kMinOutput = -1;
-      maxRPM = 5700;
+      kD = 0.0;
+      kIz = 0.0;
+      kFF = 0.0;
+      kMaxOutput = 1.0;
+      kMinOutput = -1.0;
+      maxRPM = 5700.0;
 
       mPidController.setP(kP);
       mPidController.setI(kI);
