@@ -18,10 +18,12 @@ public class Intake extends SubsystemBase {
   /**
    * Creates a new Intake.
    */
-  public Intake() {
+  
     mRollerMotor = new CANSparkMax(31, MotorType.kBrushless);
 
-  }
+  private void setSpeed() {
+      
+    }
 
   @Override
   public void periodic() {
