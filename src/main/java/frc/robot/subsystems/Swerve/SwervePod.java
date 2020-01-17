@@ -2,17 +2,16 @@ package frc.robot.subsystems.swerve;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.revrobotics.CANSparkMax;
 
-import edu.wpi.first.wpilibj.Spark;
 
 public class SwervePod {
     private static final int TICKS_PER_ROTATION = 4096;
-    private final Spark mDriveMotor;
-    private final TalonSRX mAzimuthMotor;
+    private final CANSparkMax mDriveMotor;
+    private final CANSparkMax mAzimuthMotor;
     private boolean isInverted = false;
 
-    public SwervePod(Spark drive, TalonSRX azimuth) {
+    public SwervePod(CANSparkMax drive, CANSparkMax azimuth) {
         this.mDriveMotor = drive;
         this.mAzimuthMotor = azimuth;
 
@@ -99,10 +98,10 @@ public class SwervePod {
     //    return mDriveMotor.getSelectedSensorPosition();
     //}
 
-    public TalonSRX getAzimuth() {
+    public CANSparkMax getAzimuth() {
         return mAzimuthMotor;
     }
-    public Spark getDrive(){
+    public CANSparkMax getDrive(){
        return mDriveMotor; 
     }
 
