@@ -38,7 +38,7 @@ public class SwervePod {
 
         angle *= TICKS_PER_ROTATION;
         
-        double azimuthPosition = mAzimuthMotor.getSelectedSensorPosition(0);
+        double azimuthPosition = mEncoder.getPosition();
         double azimuthError = Math.IEEEremainder(angle - azimuthPosition, TICKS_PER_ROTATION);
 
         isInverted = Math.abs(azimuthError) > 0.25 * TICKS_PER_ROTATION;
