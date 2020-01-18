@@ -5,6 +5,7 @@ import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.revrobotics.CANEncoder;
 import com.revrobotics.CANPIDController;
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.ControlType;
 
 
 public class SwervePod {
@@ -49,7 +50,7 @@ public class SwervePod {
             azimuthError -= Math.copySign(0.5 * TICKS_PER_ROTATION, azimuthError);
             driveSpeed = -driveSpeed;
         }
-        mAzimuthMotor.set(ControlMode.MotionMagic, azimuthError + azimuthPosition);
+        mPIDController.setReference(azimuthError + azimuthPosition, ControlType.kPosition);
         //mAzimuthMotor.set(ControlMode.MotionMagic, angle);
         mDriveMotor.set(driveSpeed);
   }
