@@ -3,6 +3,7 @@ package frc.robot.subsystems.swerve;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.revrobotics.CANEncoder;
+import com.revrobotics.CANPIDController;
 import com.revrobotics.CANSparkMax;
 
 
@@ -11,6 +12,7 @@ public class SwervePod {
     private final CANSparkMax mDriveMotor;
     private final CANSparkMax mAzimuthMotor;
     CANEncoder mEncoder;
+    CANPIDController mPIDController;
     private boolean isInverted = false;
 
     public SwervePod(CANSparkMax drive, CANSparkMax azimuth) {
@@ -18,6 +20,7 @@ public class SwervePod {
         this.mAzimuthMotor = azimuth;
 
         mEncoder = mAzimuthMotor.getEncoder();
+        mPIDController = mAzimuthMotor.getPIDController();
 
         /**zimuth.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
 
