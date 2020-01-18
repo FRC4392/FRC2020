@@ -49,9 +49,9 @@ public class Robot extends TimedRobot {
     mfollowMotor.restoreFactoryDefaults();
 
     //Invert motor because it is on the opposite side of the shooter
-    mfollowMotor.setInverted(true);
+    //mfollowMotor.setInverted(true);
 
-    mfollowMotor.follow(mleadMotor);
+    mfollowMotor.follow(mleadMotor, true);
 
     //Use smart dashboard for control.
     SmartDashboard.putNumber("Shoot Speed", 0.0);
