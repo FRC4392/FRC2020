@@ -62,7 +62,7 @@ public class SwervePod {
     }
 
     public void setAzimuthPosition(int position) {
-        mAzimuthMotor.set(ControlMode.MotionMagic, position);
+        mPIDController.setReference(position , ControlType.kPosition);
 
     }
 
