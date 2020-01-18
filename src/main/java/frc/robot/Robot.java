@@ -11,6 +11,7 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
@@ -47,8 +48,13 @@ public class Robot extends TimedRobot {
     mleadMotor.restoreFactoryDefaults();
     mfollowMotor.restoreFactoryDefaults();
 
+    //Invert motor because it is on the opposite side of the shooter
+    mfollowMotor.setInverted(true);
+
     mfollowMotor.follow(mleadMotor);
 
+    //Use smart dashboard for control.
+    SmartDashboard.putNumber("Shoot Speed", 0.0);
   }
 
   /**
@@ -114,6 +120,8 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
+    Double speed = SmartDashboard.getNumber("Shoot Speed", 0.0);
+    mleadMotor.set(speed);
   }
 
   @Override

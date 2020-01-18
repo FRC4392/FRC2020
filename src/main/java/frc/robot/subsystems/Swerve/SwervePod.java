@@ -57,7 +57,7 @@ public class SwervePod {
     
     public void setOpenLoop(double azimuthSpeed, double driveSpeed){
         mDriveMotor.set(driveSpeed);
-        mAzimuthMotor.set(ControlMode.PercentOutput,  azimuthSpeed);
+        //mAzimuthMotor.set(ControlMode.PercentOutput,  azimuthSpeed);
 
     }
 
@@ -67,11 +67,11 @@ public class SwervePod {
     }
 
     public void setAzimuthOpenLoop(double speed){
-        mAzimuthMotor.set(ControlMode.PercentOutput, speed);
+        //mAzimuthMotor.set(ControlMode.PercentOutput, speed);
     }
 
     public void disableAzimuth(){
-        mAzimuthMotor.neutralOutput();
+        //mAzimuthMotor.neutralOutput();
     }
 
     public void setWheelOpenLoop(double speed){
@@ -83,19 +83,20 @@ public class SwervePod {
     //}
 
     public void stop(){
-        mAzimuthMotor.set(ControlMode.MotionMagic, mAzimuthMotor.getSelectedSensorPosition(0));
+        //mAzimuthMotor.set(ControlMode.MotionMagic, mAzimuthMotor.getSelectedSensorPosition(0));
         mDriveMotor.set(0);
 
     }
 
     public void setAzimuthZero(int zero) {
         int azimuthSetpoint = getAzimuthAbsolutePosition() - zero;
-        mAzimuthMotor.setSelectedSensorPosition(-azimuthSetpoint, 0, 10);
-        mAzimuthMotor.set(ControlMode.MotionMagic, azimuthSetpoint);
+        //mAzimuthMotor.setSelectedSensorPosition(-azimuthSetpoint, 0, 10);
+        //mAzimuthMotor.set(ControlMode.MotionMagic, azimuthSetpoint);
     }
 
     public int getAzimuthAbsolutePosition(){
-        return mAzimuthMotor.getSensorCollection().getPulseWidthPosition() & 0xFFF;
+        return 0;
+        //return mAzimuthMotor.getSensorCollection().getPulseWidthPosition() & 0xFFF;
     }
 
     //public void setWheelPosition(int position){
