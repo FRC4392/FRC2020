@@ -26,12 +26,6 @@ public class Robot extends TimedRobot {
 
   private RobotContainer m_robotContainer;
 
-  private static final int leadDeviceID = 1;
-  private static final int followDeviceID = 2;
-
-  private CANSparkMax mleadMotor;
-  private CANSparkMax mfollowMotor;
-
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -42,19 +36,6 @@ public class Robot extends TimedRobot {
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
 
-    mleadMotor = new CANSparkMax(leadDeviceID, MotorType.kBrushless);
-    mfollowMotor = new CANSparkMax(followDeviceID, MotorType.kBrushless);
-
-    mleadMotor.restoreFactoryDefaults();
-    mfollowMotor.restoreFactoryDefaults();
-
-    //Invert motor because it is on the opposite side of the shooter
-    //mfollowMotor.setInverted(true);
-
-    mfollowMotor.follow(mleadMotor, true);
-
-    //Use smart dashboard for control.
-    SmartDashboard.putNumber("Shoot Speed", 0.0);
   }
 
   /**
@@ -120,9 +101,8 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
-    Double speed = SmartDashboard.getNumber("Shoot Speed", 0.0);
-    mleadMotor.set(speed);
   }
+    
 
   @Override
   public void testInit() {
