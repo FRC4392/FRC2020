@@ -7,21 +7,20 @@
 
 package frc.robot.subsystems;
 
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Intake extends SubsystemBase {
-  CANSparkMax mRollerMotor;
+  VictorSPX mRollerMotor;
   Solenoid mSolenoid;
 
   /**
    * Creates a new Intake.
    */
   public Intake(){
-    mRollerMotor = new CANSparkMax(51, MotorType.kBrushless);
+    mRollerMotor = new VictorSPX(51);
     mSolenoid = new Solenoid(1);
   }
 
