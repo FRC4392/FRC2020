@@ -24,7 +24,7 @@ public class Intake extends SubsystemBase {
     mSolenoid = new Solenoid(1);
   }
 
-  private void setSpeed() {
+  public void setSpeed(double speed) {
       
   }
 

@@ -20,6 +20,10 @@ public class Indexer extends SubsystemBase {
 
   }
 
+  public void setSpeed(double speed) {
+    
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
