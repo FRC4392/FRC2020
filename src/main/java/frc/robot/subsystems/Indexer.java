@@ -21,7 +21,7 @@ public class Indexer extends SubsystemBase {
   }
 
   public void setSpeed(double speed) {
-    
+    mIndexerMotor.set(speed);
   }
 
   @Override

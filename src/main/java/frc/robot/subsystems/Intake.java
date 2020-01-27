@@ -7,6 +7,7 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj.Solenoid;
@@ -22,9 +23,11 @@ public class Intake extends SubsystemBase {
   public Intake(){
     mRollerMotor = new VictorSPX(51);
     mSolenoid = new Solenoid(1);
+
   }
 
   public void setSpeed(double speed) {
+    mRollerMotor.set(ControlMode.PercentOutput, speed);
       
   }
 
