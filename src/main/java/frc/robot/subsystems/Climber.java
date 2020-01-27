@@ -10,6 +10,7 @@ package frc.robot.subsystems;
 import com.revrobotics.CANEncoder;
 import com.revrobotics.CANPIDController;
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.ControlType;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -67,14 +68,17 @@ public class Climber extends SubsystemBase {
   }
 
   public void setOpenLoop(double speed) {
+    mLiftMotor1.set(speed);
     
   }
 
   public void setPosition(double position) {
+   mPidController.setReference(position, ControlType.kPosition);
     
   }
 
   public void setStrafe(double speed) {
+    mHookMotor.set(speed);
     
   }
 
