@@ -38,6 +38,8 @@ public class Climber extends SubsystemBase {
     mPidController = mLiftMotor1.getPIDController();
     mPidController = mLiftMotor2.getPIDController();
 
+    mLiftMotor2.follow(mLiftMotor1);
+
     kP = 5e-5;
     kI = 1e-6;
     kD = 0.0;
@@ -62,6 +64,18 @@ public class Climber extends SubsystemBase {
     SmartDashboard.putNumber("Max Output", kMaxOutput);
     SmartDashboard.putNumber("Min Output", kMinOutput);
 
+  }
+
+  public void setOpenLoop(double speed) {
+    
+  }
+
+  public void setPosition(double position) {
+    
+  }
+
+  public void setStrafe(double speed) {
+    
   }
 
   @Override
