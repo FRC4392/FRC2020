@@ -10,23 +10,14 @@ package frc.robot.subsystems;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
-import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class Intake extends SubsystemBase {
-  CANSparkMax mRollerMotor;
-  Solenoid mSolenoid;
+public class Indexer extends SubsystemBase {
+  CANSparkMax mIndexerMotor;
 
-  /**
-   * Creates a new Intake.
-   */
-  public Intake(){
-    mRollerMotor = new CANSparkMax(51, MotorType.kBrushless);
-    mSolenoid = new Solenoid(1);
-  }
+  public Indexer() {
+    mIndexerMotor = new CANSparkMax(41, MotorType.kBrushless);
 
-  private void setSpeed() {
-      
   }
 
   @Override
