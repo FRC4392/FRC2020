@@ -20,8 +20,8 @@ public class Climber extends SubsystemBase {
    * Creates a new Climber.
    */
   public Climber() {
-    mLiftMotor = new CANSparkMax(21, MotorType.kBrushless);
-    mHookMotor = new CANSparkMax(22, MotorType.kBrushless);
+    mLiftMotor = new CANSparkMax(31, MotorType.kBrushless);
+    mHookMotor = new CANSparkMax(32, MotorType.kBrushless);
   }
 
   @Override

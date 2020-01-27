@@ -1,7 +1,6 @@
 package frc.robot.subsystems.swerve;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.FeedbackDevice;
+import com.ctre.phoenix.sensors.CANCoder;
 import com.revrobotics.CANEncoder;
 import com.revrobotics.CANPIDController;
 import com.revrobotics.CANSparkMax;
@@ -14,11 +13,13 @@ public class SwervePod {
     private final CANSparkMax mAzimuthMotor;
     CANEncoder mEncoder;
     CANPIDController mPIDController;
+    CANCoder mCanCoder;
     private boolean isInverted = false;
 
-    public SwervePod(CANSparkMax drive, CANSparkMax azimuth) {
+    public SwervePod(CANSparkMax drive, CANSparkMax azimuth, CANCoder canCoder) {
         this.mDriveMotor = drive;
         this.mAzimuthMotor = azimuth;
+        this.mCanCoder = canCoder;
 
         mEncoder = mAzimuthMotor.getEncoder();
         mPIDController = mAzimuthMotor.getPIDController();
@@ -51,27 +52,21 @@ public class SwervePod {
             driveSpeed = -driveSpeed;
         }
         mPIDController.setReference(azimuthError + azimuthPosition, ControlType.kPosition);
-        //mAzimuthMotor.set(ControlMode.MotionMagic, angle);
         mDriveMotor.set(driveSpeed);
   }
     
     public void setOpenLoop(double azimuthSpeed, double driveSpeed){
         mDriveMotor.set(driveSpeed);
-        //mAzimuthMotor.set(ControlMode.PercentOutput,  azimuthSpeed);
+        mAzimuthMotor.set(azimuthSpeed);
 
     }
 
     public void setAzimuthPosition(int position) {
         mPIDController.setReference(position , ControlType.kPosition);
-
     }
 
     public void setAzimuthOpenLoop(double speed){
-        //mAzimuthMotor.set(ControlMode.PercentOutput, speed);
-    }
-
-    public void disableAzimuth(){
-        //mAzimuthMotor.neutralOutput();
+        mAzimuthMotor.set(speed);
     }
 
     public void setWheelOpenLoop(double speed){
@@ -83,20 +78,23 @@ public class SwervePod {
     //}
 
     public void stop(){
-        //mAzimuthMotor.set(ControlMode.MotionMagic, mAzimuthMotor.getSelectedSensorPosition(0));
+        mAzimuthMotor.set(0);
         mDriveMotor.set(0);
 
     }
 
     public void setAzimuthZero(int zero) {
-        int azimuthSetpoint = getAzimuthAbsolutePosition() - zero;
-        //mAzimuthMotor.setSelectedSensorPosition(-azimuthSetpoint, 0, 10);
-        //mAzimuthMotor.set(ControlMode.MotionMagic, azimuthSetpoint);
+        double azimuthSetpoint = getAzimuthAbsolutePosition() - zero;
+        //calculate position to increments
+        //672PPR
+        double cpr = 672.0/360.0;
+        double position = azimuthSetpoint * cpr;
+
+        mEncoder.setPosition(position);
     }
 
-    public int getAzimuthAbsolutePosition(){
-        return 0;
-        //return mAzimuthMotor.getSensorCollection().getPulseWidthPosition() & 0xFFF;
+    public double getAzimuthAbsolutePosition(){
+        return mCanCoder.getAbsolutePosition();
     }
 
     //public void setWheelPosition(int position){

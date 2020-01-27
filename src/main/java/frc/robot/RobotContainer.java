@@ -10,7 +10,11 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.subsystems.Climber;
+import frc.robot.subsystems.Drivetrain;
+import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Limelight;
+import frc.robot.subsystems.Shooter;
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -20,7 +24,11 @@ import frc.robot.subsystems.Limelight;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  Limelight limelight = new Limelight();
+  Limelight mLimelight = new Limelight();
+  Drivetrain mDrivetrain = new Drivetrain();
+  Climber mClimber = new Climber();
+  Intake mIntake = new Intake();
+  Shooter mShooter = new Shooter();
     
 
 
