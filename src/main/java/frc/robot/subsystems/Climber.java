@@ -23,6 +23,8 @@ public class Climber extends SubsystemBase {
   CANEncoder mCanEncoder;
   CANPIDController mPidController;
 
+  public Double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput, maxRPM;
+
   /**
    * Creates a new Climber.
    */
