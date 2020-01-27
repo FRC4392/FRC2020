@@ -23,8 +23,6 @@ public class Intake extends SubsystemBase {
   public Intake(){
     mRollerMotor = new CANSparkMax(41, MotorType.kBrushless);
     mSolenoid = new Solenoid(1);
-    mSolenoid.set(true);
-    mSolenoid.set(false);
   }
 
   private void setSpeed() {
