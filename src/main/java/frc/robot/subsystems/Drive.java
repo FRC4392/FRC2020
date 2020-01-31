@@ -9,11 +9,11 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-public class Intake extends CommandBase {
+public class Drive extends CommandBase {
   /**
-   * Creates a new Intake.
+   * Creates a new Drive.
    */
-  public Intake() {
+  public Drive() {
     // Use addRequirements() here to declare subsystem dependencies.
   }
 

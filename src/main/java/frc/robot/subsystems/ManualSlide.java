@@ -9,11 +9,11 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-public class Intake extends CommandBase {
+public class ManualSlide extends CommandBase {
   /**
-   * Creates a new Intake.
+   * Creates a new ManualSlide.
    */
-  public Intake() {
+  public ManualSlide() {
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
