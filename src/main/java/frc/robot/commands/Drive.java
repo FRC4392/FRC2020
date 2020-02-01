@@ -10,15 +10,16 @@ package frc.robot.commands;
 import java.util.function.DoubleSupplier;
 
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Drivetrain;
 
 public class Drive extends CommandBase {
   public final Drivetrain mDrivetrain;
-  public XboxController mXboxController;
+  public XboxController mController;
   public Drive(Drivetrain Drivetrain, XboxController XboxController) {
     mDrivetrain = Drivetrain;
-    mXboxController = XboxController;
+    mController = XboxController;
     addRequirements(mDrivetrain);
 
   }
@@ -31,7 +32,7 @@ public class Drive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    mDrivetrain.drive();
+    mDrivetrain.drive(mController.getY(Hand.kLeft), mController.getX(Hand.kLeft), mController.getX(Hand.kRight));
 
   }
 
