@@ -15,9 +15,10 @@ import frc.robot.subsystems.Drivetrain;
 
 public class Drive extends CommandBase {
   public final Drivetrain mDrivetrain;
-  public XboxController mController;
-  public Drive(Drivetrain Drivetrain) {
+  public XboxController mXboxController;
+  public Drive(Drivetrain Drivetrain, XboxController XboxController) {
     mDrivetrain = Drivetrain;
+    mXboxController = XboxController;
     addRequirements(mDrivetrain);
 
   }
