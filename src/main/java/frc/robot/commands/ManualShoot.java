@@ -5,15 +5,15 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.subsystems;
+package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-public class ManualSlide extends CommandBase {
+public class ManualShoot extends CommandBase {
   /**
-   * Creates a new ManualSlide.
+   * Creates a new ManualShoot.
    */
-  public ManualSlide() {
+  public ManualShoot() {
     // Use addRequirements() here to declare subsystem dependencies.
   }
 

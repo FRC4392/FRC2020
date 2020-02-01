@@ -7,34 +7,30 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
-public class Intake extends CommandBase {
-  /**
-   * Creates a new Intake.
-   */
-  public Intake() {
-    // Use addRequirements() here to declare subsystem dependencies.
+import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
+public class Intake extends SubsystemBase {
+  VictorSPX mRollerMotor;
+  Solenoid mSolenoid;
+
+  
+  public Intake(){
+    mRollerMotor = new VictorSPX(51);
+    mSolenoid = new Solenoid(1);
+
   }
 
-  // Called when the command is initially scheduled.
-  @Override
-  public void initialize() {
+  public void setSpeed(double speed) {
+    mRollerMotor.set(ControlMode.PercentOutput, speed);
+
   }
 
-  // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {
-  }
-
-  // Called once the command ends or is interrupted.
-  @Override
-  public void end(boolean interrupted) {
-  }
-
-  // Returns true when the command should end.
-  @Override
-  public boolean isFinished() {
-    return false;
+  public void periodic() {
+    // This method will be called once per scheduler run
   }
 }

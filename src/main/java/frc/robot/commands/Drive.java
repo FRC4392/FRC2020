@@ -5,15 +5,15 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.subsystems;
+package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-public class Outtake extends CommandBase {
+public class Drive extends CommandBase {
   /**
-   * Creates a new Outtake.
+   * Creates a new Drive.
    */
-  public Outtake() {
+  public Drive() {
     // Use addRequirements() here to declare subsystem dependencies.
   }
 

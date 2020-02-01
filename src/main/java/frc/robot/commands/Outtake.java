@@ -5,15 +5,15 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.subsystems;
+package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-public class ManualHang extends CommandBase {
+public class Outtake extends CommandBase {
   /**
-   * Creates a new ManualHang.
+   * Creates a new Outtake.
    */
-  public ManualHang() {
+  public Outtake() {
     // Use addRequirements() here to declare subsystem dependencies.
   }
 

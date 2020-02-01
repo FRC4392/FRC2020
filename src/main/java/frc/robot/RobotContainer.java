@@ -30,8 +30,8 @@ public class RobotContainer {
   Climber mClimber = new Climber();
   Intake mIntake = new Intake();
   Shooter mShooter = new Shooter();
-  XboxController mDriverController = new XboxController();
-  XboxController mOperatorController = new XboxController();
+  XboxController mDriverController = new XboxController(0);
+  XboxController mOperatorController = new XboxController(1);
 
     
 
