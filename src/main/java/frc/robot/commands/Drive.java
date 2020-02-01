@@ -9,20 +9,15 @@ package frc.robot.commands;
 
 import java.util.function.DoubleSupplier;
 
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Drivetrain;
 
 public class Drive extends CommandBase {
   public final Drivetrain mDrivetrain;
-  public final DoubleSupplier mForward;
-  public final DoubleSupplier mStrafe;
-  public final DoubleSupplier mAzimuth;
-
-  public Drive(Drivetrain Drivetrain, DoubleSupplier Forward, DoubleSupplier Strafe, DoubleSupplier Azimuth) {
+  public XboxController mController;
+  public Drive(Drivetrain Drivetrain) {
     mDrivetrain = Drivetrain;
-    mForward = Forward;
-    mStrafe = Strafe;
-    mAzimuth = Azimuth;
     addRequirements(mDrivetrain);
 
   }
@@ -35,7 +30,7 @@ public class Drive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    mDrivetrain.drive(mForward.getAsDouble(), mStrafe.getAsDouble(), mAzimuth.getAsDouble());
+    mDrivetrain.drive();
 
   }
 
