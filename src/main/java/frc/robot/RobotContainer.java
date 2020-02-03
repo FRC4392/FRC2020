@@ -20,7 +20,6 @@ import frc.robot.commands.Drive;
 import frc.robot.commands.ManualHang;
 import frc.robot.commands.ManualShoot;
 import frc.robot.commands.ManualSlide;
-import frc.robot.commands.Intake;
 import frc.robot.commands.Outtake;
 
 /**
