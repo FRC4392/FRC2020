@@ -11,11 +11,11 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Intake;
 
 public class Intake extends CommandBase {
-  public final Intake mIntake;
+  public final frc.robot.subsystems.Intake mIntake;
 
-  public Intake(Intake Intake) {
+  public Intake(frc.robot.subsystems.Intake Intake) {
     mIntake = Intake;
-    addRequirements(Intake);
+    addRequirements(mIntake);
 
   }
 
@@ -27,7 +27,7 @@ public class Intake extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    mIntake.setVelocity();
+    mIntake.setSpeed(1.0);
   }
 
   // Called once the command ends or is interrupted.
