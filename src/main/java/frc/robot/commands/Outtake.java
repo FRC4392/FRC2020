@@ -13,7 +13,7 @@ import frc.robot.subsystems.Intake;
 public class Outtake extends CommandBase {
   public final Intake mOuttake;
 
-  public Outtake(Outtake Outtake) {
+  public Outtake(Intake Outtake) {
     mOuttake = Outtake;
     addRequirements(mOuttake);
 
