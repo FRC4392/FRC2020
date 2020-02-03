@@ -15,12 +15,12 @@ import frc.robot.subsystems.Climber;
 public class ManualHang extends CommandBase {
   public final Climber mClimber;
   public XboxController mController;
+  
+  public ManualHang(Climber Climber, XboxController Controller) {
     mClimber = Climber;
     mController = Controller;
-  
+    addRequirements(mClimber);
 
-  public ManualHang() {
-    // Use addRequirements() here to declare subsystem dependencies.
   }
 
   // Called when the command is initially scheduled.
