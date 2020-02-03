@@ -7,14 +7,21 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.Climber;
 
 public class ManualSlide extends CommandBase {
-  /**
-   * Creates a new ManualSlide.
-   */
-  public ManualSlide() {
-    // Use addRequirements() here to declare subsystem dependencies.
+  public final Climber mClimber;
+  public XboxController mController;
+
+
+  public ManualSlide(Climber Climber, XboxController Controller) {
+   mClimber = Climber;
+   mController = Controller;
+   addRequirements(mClimber);
+
   }
 
   // Called when the command is initially scheduled.
@@ -25,6 +32,8 @@ public class ManualSlide extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    mClimber.setStrafe(mController.getX(Hand.kLeft));
+
   }
 
   // Called once the command ends or is interrupted.
