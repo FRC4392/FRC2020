@@ -37,9 +37,7 @@ public class RobotContainer {
   Shooter mShooter = new Shooter();
   XboxController mDriverController = new XboxController(0);
   XboxController mOperatorController = new XboxController(1);
-  JoystickButton ManualShootButton = new JoystickButton( mOperatorController,1);
-  JoystickButton IntakeButton = new JoystickButton(mOperatorController, 2);
-  JoystickButton OuttakeButton = new JoystickButton(mOperatorController, 3);
+
 
     
   /**
@@ -57,6 +55,10 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
+    JoystickButton ManualShootButton = new JoystickButton( mOperatorController,1);
+    JoystickButton IntakeButton = new JoystickButton(mOperatorController, 2);
+    JoystickButton OuttakeButton = new JoystickButton(mOperatorController, 3);
+
     mDrivetrain.setDefaultCommand(new Drive(mDrivetrain, mDriverController));
     mClimber.setDefaultCommand(new ManualHang(mClimber, mOperatorController));
     ManualShootButton.whenPressed(new ManualShoot(mShooter));
