@@ -15,10 +15,9 @@ import frc.robot.subsystems.Climber;
 public class ManualHang extends CommandBase {
   public final Climber mClimber;
   public XboxController mController;
-  public void Climb(Climber Climber, XboxController Controller){
     mClimber = Climber;
     mController = Controller;
-  }
+  
 
   public ManualHang() {
     // Use addRequirements() here to declare subsystem dependencies.
