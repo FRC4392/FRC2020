@@ -8,13 +8,15 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.Shooter;
 
 public class ManualShoot extends CommandBase {
-  /**
-   * Creates a new ManualShoot.
-   */
-  public ManualShoot() {
-    // Use addRequirements() here to declare subsystem dependencies.
+ public final Shooter mShooter;
+
+  public ManualShoot(Shooter Shooter) {
+    mShooter = Shooter;
+    addRequirements(mShooter);
+
   }
 
   // Called when the command is initially scheduled.
