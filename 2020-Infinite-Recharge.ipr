@@ -1,79 +1,476 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <option name="DEFAULT_COMPILER" value="Javac"/>
     <resourceExtensions>
-      <entry name=".+\.(properties|xml|html|dtd|tld)"/>
-      <entry name=".+\.(gif|png|jpeg|jpg)"/>
+      <entry name=".+\.(properties|xml|html|dtd|tld)" />
+      <entry name=".+\.(gif|png|jpeg|jpg)" />
     </resourceExtensions>
     <wildcardResourcePatterns>
-      <entry name="!?*.class"/>
-      <entry name="!?*.scala"/>
-      <entry name="!?*.groovy"/>
-      <entry name="!?*.java"/>
+      <entry name="!?*.class" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.java" />
     </wildcardResourcePatterns>
-    <annotationProcessing enabled="false" useClasspath="true"/>
-    <bytecodeTargetLevel target="11"/>
+    <bytecodeTargetLevel target="11">
+      <module name="2020-Infinite-Recharge.main" target="11" />
+      <module name="2020-Infinite-Recharge.test" target="11" />
+    </bytecodeTargetLevel>
   </component>
-  <component name="CopyrightManager" default="">
-    <module2copyright/>
-  </component>
+  <component name="CopyrightManager" default="" />
   <component name="DependencyValidationManager">
-    <option name="SKIP_IMPORT_STATEMENTS" value="false"/>
+    <option name="SKIP_IMPORT_STATEMENTS" value="false" />
   </component>
-  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false"/>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+          </set>
+        </option>
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+    </option>
+  </component>
   <component name="GradleUISettings">
-    <setting name="root"/>
+    <setting name="root" />
   </component>
   <component name="GradleUISettings2">
-    <setting name="root"/>
+    <setting name="root" />
   </component>
-  <component name="IdProvider" IDEtalkID="11DA1DB66DD62DDA1ED602B7079FE97C"/>
+  <component name="IdProvider" IDEtalkID="11DA1DB66DD62DDA1ED602B7079FE97C" />
+  <component name="InspectionProjectProfileManager">
+    <profile version="1.0">
+      <option name="myName" value="Project Default" />
+    </profile>
+    <version value="1.0" />
+  </component>
   <component name="JavadocGenerationManager">
-    <option name="OUTPUT_DIRECTORY"/>
-    <option name="OPTION_SCOPE" value="protected"/>
-    <option name="OPTION_HIERARCHY" value="true"/>
-    <option name="OPTION_NAVIGATOR" value="true"/>
-    <option name="OPTION_INDEX" value="true"/>
-    <option name="OPTION_SEPARATE_INDEX" value="true"/>
-    <option name="OPTION_DOCUMENT_TAG_USE" value="false"/>
-    <option name="OPTION_DOCUMENT_TAG_AUTHOR" value="false"/>
-    <option name="OPTION_DOCUMENT_TAG_VERSION" value="false"/>
-    <option name="OPTION_DOCUMENT_TAG_DEPRECATED" value="true"/>
-    <option name="OPTION_DEPRECATED_LIST" value="true"/>
-    <option name="OTHER_OPTIONS" value=""/>
-    <option name="HEAP_SIZE"/>
-    <option name="LOCALE"/>
-    <option name="OPEN_IN_BROWSER" value="true"/>
+    <option name="OUTPUT_DIRECTORY" />
+    <option name="OPTION_SCOPE" value="protected" />
+    <option name="OPTION_HIERARCHY" value="true" />
+    <option name="OPTION_NAVIGATOR" value="true" />
+    <option name="OPTION_INDEX" value="true" />
+    <option name="OPTION_SEPARATE_INDEX" value="true" />
+    <option name="OPTION_DOCUMENT_TAG_USE" value="false" />
+    <option name="OPTION_DOCUMENT_TAG_AUTHOR" value="false" />
+    <option name="OPTION_DOCUMENT_TAG_VERSION" value="false" />
+    <option name="OPTION_DOCUMENT_TAG_DEPRECATED" value="true" />
+    <option name="OPTION_DEPRECATED_LIST" value="true" />
+    <option name="OTHER_OPTIONS" value="" />
+    <option name="HEAP_SIZE" />
+    <option name="LOCALE" />
+    <option name="OPEN_IN_BROWSER" value="true" />
+  </component>
+  <component name="Palette2">
+    <group name="Swing">
+      <item class="com.intellij.uiDesigner.HSpacer" tooltip-text="Horizontal Spacer" icon="/com/intellij/uiDesigner/icons/hspacer.png" removable="false" auto-create-binding="false" can-attach-label="false">
+        <default-constraints vsize-policy="1" hsize-policy="6" anchor="0" fill="1" />
+      </item>
+      <item class="com.intellij.uiDesigner.VSpacer" tooltip-text="Vertical Spacer" icon="/com/intellij/uiDesigner/icons/vspacer.png" removable="false" auto-create-binding="false" can-attach-label="false">
+        <default-constraints vsize-policy="6" hsize-policy="1" anchor="0" fill="2" />
+      </item>
+      <item class="javax.swing.JPanel" icon="/com/intellij/uiDesigner/icons/panel.png" removable="false" auto-create-binding="false" can-attach-label="false">
+        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3" />
+      </item>
+      <item class="javax.swing.JScrollPane" icon="/com/intellij/uiDesigner/icons/scrollPane.png" removable="false" auto-create-binding="false" can-attach-label="true">
+        <default-constraints vsize-policy="7" hsize-policy="7" anchor="0" fill="3" />
+      </item>
+      <item class="javax.swing.JButton" icon="/com/intellij/uiDesigner/icons/button.png" removable="false" auto-create-binding="true" can-attach-label="false">
+        <default-constraints vsize-policy="0" hsize-policy="3" anchor="0" fill="1" />
+        <initial-values>
+          <property name="text" value="Button" />
+        </initial-values>
+      </item>
+      <item class="javax.swing.JRadioButton" icon="/com/intellij/uiDesigner/icons/radioButton.png" removable="false" auto-create-binding="true" can-attach-label="false">
+        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
+        <initial-values>
+          <property name="text" value="RadioButton" />
+        </initial-values>
+      </item>
+      <item class="javax.swing.JCheckBox" icon="/com/intellij/uiDesigner/icons/checkBox.png" removable="false" auto-create-binding="true" can-attach-label="false">
+        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
+        <initial-values>
+          <property name="text" value="CheckBox" />
+        </initial-values>
+      </item>
+      <item class="javax.swing.JLabel" icon="/com/intellij/uiDesigner/icons/label.png" removable="false" auto-create-binding="false" can-attach-label="false">
+        <default-constraints vsize-policy="0" hsize-policy="0" anchor="8" fill="0" />
+        <initial-values>
+          <property name="text" value="Label" />
+        </initial-values>
+      </item>
+      <item class="javax.swing.JTextField" icon="/com/intellij/uiDesigner/icons/textField.png" removable="false" auto-create-binding="true" can-attach-label="true">
+        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
+          <preferred-size width="150" height="-1" />
+        </default-constraints>
+      </item>
+      <item class="javax.swing.JPasswordField" icon="/com/intellij/uiDesigner/icons/passwordField.png" removable="false" auto-create-binding="true" can-attach-label="true">
+        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
+          <preferred-size width="150" height="-1" />
+        </default-constraints>
+      </item>
+      <item class="javax.swing.JFormattedTextField" icon="/com/intellij/uiDesigner/icons/formattedTextField.png" removable="false" auto-create-binding="true" can-attach-label="true">
+        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
+          <preferred-size width="150" height="-1" />
+        </default-constraints>
+      </item>
+      <item class="javax.swing.JTextArea" icon="/com/intellij/uiDesigner/icons/textArea.png" removable="false" auto-create-binding="true" can-attach-label="true">
+        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
+          <preferred-size width="150" height="50" />
+        </default-constraints>
+      </item>
+      <item class="javax.swing.JTextPane" icon="/com/intellij/uiDesigner/icons/textPane.png" removable="false" auto-create-binding="true" can-attach-label="true">
+        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
+          <preferred-size width="150" height="50" />
+        </default-constraints>
+      </item>
+      <item class="javax.swing.JEditorPane" icon="/com/intellij/uiDesigner/icons/editorPane.png" removable="false" auto-create-binding="true" can-attach-label="true">
+        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
+          <preferred-size width="150" height="50" />
+        </default-constraints>
+      </item>
+      <item class="javax.swing.JComboBox" icon="/com/intellij/uiDesigner/icons/comboBox.png" removable="false" auto-create-binding="true" can-attach-label="true">
+        <default-constraints vsize-policy="0" hsize-policy="2" anchor="8" fill="1" />
+      </item>
+      <item class="javax.swing.JTable" icon="/com/intellij/uiDesigner/icons/table.png" removable="false" auto-create-binding="true" can-attach-label="false">
+        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
+          <preferred-size width="150" height="50" />
+        </default-constraints>
+      </item>
+      <item class="javax.swing.JList" icon="/com/intellij/uiDesigner/icons/list.png" removable="false" auto-create-binding="true" can-attach-label="false">
+        <default-constraints vsize-policy="6" hsize-policy="2" anchor="0" fill="3">
+          <preferred-size width="150" height="50" />
+        </default-constraints>
+      </item>
+      <item class="javax.swing.JTree" icon="/com/intellij/uiDesigner/icons/tree.png" removable="false" auto-create-binding="true" can-attach-label="false">
+        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
+          <preferred-size width="150" height="50" />
+        </default-constraints>
+      </item>
+      <item class="javax.swing.JTabbedPane" icon="/com/intellij/uiDesigner/icons/tabbedPane.png" removable="false" auto-create-binding="true" can-attach-label="false">
+        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
+          <preferred-size width="200" height="200" />
+        </default-constraints>
+      </item>
+      <item class="javax.swing.JSplitPane" icon="/com/intellij/uiDesigner/icons/splitPane.png" removable="false" auto-create-binding="false" can-attach-label="false">
+        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
+          <preferred-size width="200" height="200" />
+        </default-constraints>
+      </item>
+      <item class="javax.swing.JSpinner" icon="/com/intellij/uiDesigner/icons/spinner.png" removable="false" auto-create-binding="true" can-attach-label="true">
+        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
+      </item>
+      <item class="javax.swing.JSlider" icon="/com/intellij/uiDesigner/icons/slider.png" removable="false" auto-create-binding="true" can-attach-label="false">
+        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
+      </item>
+      <item class="javax.swing.JSeparator" icon="/com/intellij/uiDesigner/icons/separator.png" removable="false" auto-create-binding="false" can-attach-label="false">
+        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3" />
+      </item>
+      <item class="javax.swing.JProgressBar" icon="/com/intellij/uiDesigner/icons/progressbar.png" removable="false" auto-create-binding="true" can-attach-label="false">
+        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1" />
+      </item>
+      <item class="javax.swing.JToolBar" icon="/com/intellij/uiDesigner/icons/toolbar.png" removable="false" auto-create-binding="false" can-attach-label="false">
+        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1">
+          <preferred-size width="-1" height="20" />
+        </default-constraints>
+      </item>
+      <item class="javax.swing.JToolBar$Separator" icon="/com/intellij/uiDesigner/icons/toolbarSeparator.png" removable="false" auto-create-binding="false" can-attach-label="false">
+        <default-constraints vsize-policy="0" hsize-policy="0" anchor="0" fill="1" />
+      </item>
+      <item class="javax.swing.JScrollBar" icon="/com/intellij/uiDesigner/icons/scrollbar.png" removable="false" auto-create-binding="true" can-attach-label="false">
+        <default-constraints vsize-policy="6" hsize-policy="0" anchor="0" fill="2" />
+      </item>
+    </group>
   </component>
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/2020-Infinite-Recharge.iml" filepath="$PROJECT_DIR$/2020-Infinite-Recharge.iml"/>
+      <module fileurl="file://$PROJECT_DIR$/2020-Infinite-Recharge.iml" filepath="$PROJECT_DIR$/2020-Infinite-Recharge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/2020-Infinite-Recharge.main.iml" filepath="$PROJECT_DIR$/2020-Infinite-Recharge.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/2020-Infinite-Recharge.test.iml" filepath="$PROJECT_DIR$/2020-Infinite-Recharge.test.iml" />
     </modules>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" assert-keyword="true" jdk-15="true" project-jdk-type="JavaSDK" assert-jdk-15="true" project-jdk-name="11">
-    <output url="file://$PROJECT_DIR$/out"/>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="RemoteRepositoriesConfiguration">
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Maven Central repository" />
+      <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jboss.community" />
+      <option name="name" value="JBoss Community repository" />
+      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="MavenRepo" />
+      <option name="name" value="MavenRepo" />
+      <option name="url" value="https://repo.maven.apache.org/maven2/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="WPIab676553-b602-441f-a38d-f1296eff6537_0Release" />
+      <option name="name" value="WPIab676553-b602-441f-a38d-f1296eff6537_0Release" />
+      <option name="url" value="http://devsite.ctr-electronics.com/maven/release/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="WPIOfficialRelease" />
+      <option name="name" value="WPIOfficialRelease" />
+      <option name="url" value="https://frcmaven.wpi.edu/artifactory/release" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="WPI3f48eb8c-50fe-43a6-9cb7-44c86353c4cb_0Release" />
+      <option name="name" value="WPI3f48eb8c-50fe-43a6-9cb7-44c86353c4cb_0Release" />
+      <option name="url" value="http://www.revrobotics.com/content/sw/max/sdk/maven/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="WPILocal" />
+      <option name="name" value="WPILocal" />
+      <option name="url" value="file:$USER_HOME$/wpilib/2020/maven/" />
+    </remote-repository>
   </component>
   <component name="SvnBranchConfigurationManager">
-    <option name="mySupportsUserInfoFilter" value="true"/>
+    <option name="mySupportsUserInfoFilter" value="true" />
   </component>
   <component name="VcsDirectoryMappings">
-    <mapping directory="" vcs=""/>
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+  </component>
+  <component name="libraryTable">
+    <library name="Gradle: com.ctre.phoenix:api-java:5.17.4">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.ctre.phoenix/api-java/5.17.4/d0879b36fb87b5e2d06b528b2f09801da218c8cb/api-java-5.17.4.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.ctre.phoenix/api-java/5.17.4/9c65a61fa76e6776db6cd979534a6ca783561c53/api-java-5.17.4-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: com.ctre.phoenix:wpiapi-java:5.17.4">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.ctre.phoenix/wpiapi-java/5.17.4/33b32fb5e7f2eaf1970353876a742823b011568c/wpiapi-java-5.17.4.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.ctre.phoenix/wpiapi-java/5.17.4/3d2454bb85722b116a08624cf2c1680d03618ea6/wpiapi-java-5.17.4-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.10.0">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/wpilib/2020/maven/com/fasterxml/jackson/core/jackson-annotations/2.10.0/jackson-annotations-2.10.0.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/wpilib/2020/maven/com/fasterxml/jackson/core/jackson-annotations/2.10.0/jackson-annotations-2.10.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: com.fasterxml.jackson.core:jackson-core:2.10.0">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/wpilib/2020/maven/com/fasterxml/jackson/core/jackson-core/2.10.0/jackson-core-2.10.0.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/wpilib/2020/maven/com/fasterxml/jackson/core/jackson-core/2.10.0/jackson-core-2.10.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.10.0">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/wpilib/2020/maven/com/fasterxml/jackson/core/jackson-databind/2.10.0/jackson-databind-2.10.0.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/wpilib/2020/maven/com/fasterxml/jackson/core/jackson-databind/2.10.0/jackson-databind-2.10.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: com.google.code.findbugs:jsr305:3.0.2">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/wpilib/2020/maven/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/wpilib/2020/maven/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: com.revrobotics.frc:SparkMax-java:1.5.1">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.revrobotics.frc/SparkMax-java/1.5.1/e23174e5aba5326d8bc688de17673943ee49c041/SparkMax-java-1.5.1.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.revrobotics.frc/SparkMax-java/1.5.1/562a8580ca896bb257692e03ccdace958475ee8d/SparkMax-java-1.5.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: edu.wpi.first.cameraserver:cameraserver-java:2020.2.2">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/edu.wpi.first.cameraserver/cameraserver-java/2020.2.2/50d6b60d2795f71bd86d52faf76adbe80f1efa8f/cameraserver-java-2020.2.2.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/edu.wpi.first.cameraserver/cameraserver-java/2020.2.2/f9cc1761dc928f0251e861e99f4958d62c0a4fc7/cameraserver-java-2020.2.2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: edu.wpi.first.cscore:cscore-java:2020.2.2">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/edu.wpi.first.cscore/cscore-java/2020.2.2/47b317a3babbc6acd39ec7d957c6b05ba6a75736/cscore-java-2020.2.2.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/edu.wpi.first.cscore/cscore-java/2020.2.2/b912a6385d311cb323bd82408cf37cbb440278c7/cscore-java-2020.2.2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: edu.wpi.first.hal:hal-java:2020.2.2">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/edu.wpi.first.hal/hal-java/2020.2.2/b08b534edeed8198bc5fc76d441bc296c0a70464/hal-java-2020.2.2.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/edu.wpi.first.hal/hal-java/2020.2.2/9608343e21ac162b5027ca9feab6230052ed4c7e/hal-java-2020.2.2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: edu.wpi.first.ntcore:ntcore-java:2020.2.2">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/edu.wpi.first.ntcore/ntcore-java/2020.2.2/129c58f314a8340ed6bb03339ae638c87561f2c4/ntcore-java-2020.2.2.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/edu.wpi.first.ntcore/ntcore-java/2020.2.2/29aacbc0af4bec6198429c172323becb55cbb409/ntcore-java-2020.2.2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: edu.wpi.first.thirdparty.frc2020.opencv:opencv-java:3.4.7-2">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/wpilib/2020/maven/edu/wpi/first/thirdparty/frc2020/opencv/opencv-java/3.4.7-2/opencv-java-3.4.7-2.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/wpilib/2020/maven/edu/wpi/first/thirdparty/frc2020/opencv/opencv-java/3.4.7-2/opencv-java-3.4.7-2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: edu.wpi.first.wpilibj:wpilibj-java:2020.2.2">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/edu.wpi.first.wpilibj/wpilibj-java/2020.2.2/54642b06b7c0e36c296e6e92fd6879b36ab85326/wpilibj-java-2020.2.2.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/edu.wpi.first.wpilibj/wpilibj-java/2020.2.2/8dee1e19d0f236bf459bd77de457069acdbf7cd/wpilibj-java-2020.2.2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: edu.wpi.first.wpilibNewCommands:wpilibNewCommands-java:2020.2.2">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/edu.wpi.first.wpilibNewCommands/wpilibNewCommands-java/2020.2.2/67676c7925417547c608b6ce8125f27b0b148639/wpilibNewCommands-java-2020.2.2.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/edu.wpi.first.wpilibNewCommands/wpilibNewCommands-java/2020.2.2/929ccb488bbc08a257e4c23b4f833a04cfc5235f/wpilibNewCommands-java-2020.2.2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: edu.wpi.first.wpiutil:wpiutil-java:2020.2.2">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/edu.wpi.first.wpiutil/wpiutil-java/2020.2.2/c6f1e34d2a60b0df3614e7467be664f111da1e6/wpiutil-java-2020.2.2.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/edu.wpi.first.wpiutil/wpiutil-java/2020.2.2/d721cd0d47eef23db8184127e8a4443a2142d882/wpiutil-java-2020.2.2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: junit:junit:4.12">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/wpilib/2020/maven/junit/junit/4.12/junit-4.12.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/wpilib/2020/maven/junit/junit/4.12/junit-4.12-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: org.ejml:ejml-cdense:0.38">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/wpilib/2020/maven/org/ejml/ejml-cdense/0.38/ejml-cdense-0.38.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/wpilib/2020/maven/org/ejml/ejml-cdense/0.38/ejml-cdense-0.38-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: org.ejml:ejml-core:0.38">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/wpilib/2020/maven/org/ejml/ejml-core/0.38/ejml-core-0.38.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/wpilib/2020/maven/org/ejml/ejml-core/0.38/ejml-core-0.38-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: org.ejml:ejml-ddense:0.38">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/wpilib/2020/maven/org/ejml/ejml-ddense/0.38/ejml-ddense-0.38.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/wpilib/2020/maven/org/ejml/ejml-ddense/0.38/ejml-ddense-0.38-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: org.ejml:ejml-dsparse:0.38">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/wpilib/2020/maven/org/ejml/ejml-dsparse/0.38/ejml-dsparse-0.38.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/wpilib/2020/maven/org/ejml/ejml-dsparse/0.38/ejml-dsparse-0.38-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: org.ejml:ejml-fdense:0.38">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/wpilib/2020/maven/org/ejml/ejml-fdense/0.38/ejml-fdense-0.38.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/wpilib/2020/maven/org/ejml/ejml-fdense/0.38/ejml-fdense-0.38-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: org.ejml:ejml-simple:0.38">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/wpilib/2020/maven/org/ejml/ejml-simple/0.38/ejml-simple-0.38.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/wpilib/2020/maven/org/ejml/ejml-simple/0.38/ejml-simple-0.38-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: org.ejml:ejml-zdense:0.38">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/wpilib/2020/maven/org/ejml/ejml-zdense/0.38/ejml-zdense-0.38.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/wpilib/2020/maven/org/ejml/ejml-zdense/0.38/ejml-zdense-0.38-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: org.hamcrest:hamcrest-core:1.3">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/wpilib/2020/maven/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/wpilib/2020/maven/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3-sources.jar!/" />
+      </SOURCES>
+    </library>
   </component>
   <component name="masterDetails">
     <states>
       <state key="ArtifactsStructureConfigurable.UI">
         <UIState>
           <splitter-proportions>
-            <SplitterProportionsDataImpl/>
+            <SplitterProportionsDataImpl />
           </splitter-proportions>
-          <settings/>
+          <settings />
         </UIState>
       </state>
       <state key="Copyright.UI">
         <UIState>
           <splitter-proportions>
-            <SplitterProportionsDataImpl/>
+            <SplitterProportionsDataImpl />
           </splitter-proportions>
         </UIState>
       </state>
@@ -83,7 +480,7 @@
             <SplitterProportionsDataImpl>
               <option name="proportions">
                 <list>
-                  <option value="0.2"/>
+                  <option value="0.2" />
                 </list>
               </option>
             </SplitterProportionsDataImpl>
@@ -94,9 +491,9 @@
       <state key="ScopeChooserConfigurable.UI">
         <UIState>
           <splitter-proportions>
-            <SplitterProportionsDataImpl/>
+            <SplitterProportionsDataImpl />
           </splitter-proportions>
-          <settings/>
+          <settings />
         </UIState>
       </state>
     </states>
