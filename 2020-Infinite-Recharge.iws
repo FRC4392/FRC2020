@@ -1,19 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0721cafd-8371-472a-816d-cb5999b9a69a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/2020-Infinite-Recharge.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2020-Infinite-Recharge.test.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2020-Infinite-Recharge.iml" beforeDir="false" afterPath="$PROJECT_DIR$/2020-Infinite-Recharge.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2020-Infinite-Recharge.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/2020-Infinite-Recharge.ipr" afterDir="false" />
+    <list default="true" id="0721cafd-8371-472a-816d-cb5999b9a69a" name="Default Changelist" comment="Update Intellij">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/2020-Infinite-Recharge.iws" beforeDir="false" afterPath="$PROJECT_DIR$/2020-Infinite-Recharge.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/RobotContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/RobotContainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/Drive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/DriveCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/Intake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/IntakeCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/ManualHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/ManualHangCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/ManualShoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/ManualShootCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/ManualSlide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/ManualSlideCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/frc/robot/commands/Outtake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frc/robot/commands/OuttakeCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,8 +153,30 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1580775867121</updated>
-      <workItem from="1580775868446" duration="353000" />
+      <workItem from="1580775868446" duration="635000" />
     </task>
+    <task id="LOCAL-00001" summary="Update Intellij">
+      <created>1580776292494</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1580776292494</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Rename Commands">
+      <created>1580776341030</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1580776341030</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Update gitignore for intellij">
+      <created>1580776445075</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1580776445075</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,6 +184,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <MESSAGE value="Update Intellij" />
+    <MESSAGE value="Rename Commands" />
+    <MESSAGE value="Update gitignore for intellij" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update gitignore for intellij" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -179,10 +195,18 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="304" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1580775941414" />
-    <state x="243" y="127" key="CommitChangelistDialog2" timestamp="1580776227620">
+    <state x="243" y="127" key="CommitChangelistDialog2" timestamp="1580776517033">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="243" y="127" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1580776227620" />
+    <state x="243" y="127" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1580776517033" />
+    <state x="690" y="448" key="VCS.ChangelistChooser" timestamp="1580776299895">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="690" y="448" key="VCS.ChangelistChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1580776299895" />
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1580776343127">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1580776343127" />
     <state x="623" y="449" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1580776259558">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
