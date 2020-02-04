@@ -8,14 +8,14 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.Intake;
 
 public class IntakeCommand extends CommandBase {
-  public final frc.robot.subsystems.Intake mIntake;
+  public final Intake mIntake;
 
   public IntakeCommand(frc.robot.subsystems.Intake Intake) {
     mIntake = Intake;
     addRequirements(mIntake);
-
   }
 
   // Called when the command is initially scheduled.

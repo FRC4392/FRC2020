@@ -21,7 +21,6 @@ public class ManualSlideCommand extends CommandBase {
    mClimber = Climber;
    mController = Controller;
    addRequirements(mClimber);
-
   }
 
   // Called when the command is initially scheduled.
@@ -33,7 +32,6 @@ public class ManualSlideCommand extends CommandBase {
   @Override
   public void execute() {
     mClimber.setStrafe(mController.getX(Hand.kLeft));
-
   }
 
   // Called once the command ends or is interrupted.

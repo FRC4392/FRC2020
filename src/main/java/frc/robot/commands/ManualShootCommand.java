@@ -16,7 +16,6 @@ public class ManualShootCommand extends CommandBase {
   public ManualShootCommand(Shooter Shooter) {
     mShooter = Shooter;
     addRequirements(mShooter);
-
   }
 
   // Called when the command is initially scheduled.
@@ -27,7 +26,7 @@ public class ManualShootCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    mShooter.setVelocity();
+    mShooter.setVelocity(100.0);
   }
 
   // Called once the command ends or is interrupted.

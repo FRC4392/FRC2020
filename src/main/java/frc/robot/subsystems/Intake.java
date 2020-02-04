@@ -21,12 +21,10 @@ public class Intake extends SubsystemBase {
   public Intake(){
     mRollerMotor = new VictorSPX(51);
     mSolenoid = new Solenoid(1);
-
   }
 
   public void setSpeed(double speed) {
     mRollerMotor.set(ControlMode.PercentOutput, speed);
-
   }
 
   @Override

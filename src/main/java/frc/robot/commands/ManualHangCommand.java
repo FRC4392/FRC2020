@@ -20,7 +20,6 @@ public class ManualHangCommand extends CommandBase {
     mClimber = Climber;
     mController = Controller;
     addRequirements(mClimber);
-
   }
 
   // Called when the command is initially scheduled.
@@ -32,7 +31,6 @@ public class ManualHangCommand extends CommandBase {
   @Override
   public void execute() {
     mClimber.setOpenLoop(mController.getY(Hand.kLeft));
-
   }
 
   // Called once the command ends or is interrupted.

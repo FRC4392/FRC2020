@@ -17,7 +17,6 @@ public class Indexer extends SubsystemBase {
 
   public Indexer() {
     mIndexerMotor = new CANSparkMax(41, MotorType.kBrushless);
-
   }
 
   public void setSpeed(double speed) {

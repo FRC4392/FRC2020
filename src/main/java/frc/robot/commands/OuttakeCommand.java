@@ -16,7 +16,6 @@ public class OuttakeCommand extends CommandBase {
   public OuttakeCommand(Intake Outtake) {
     mOuttake = Outtake;
     addRequirements(mOuttake);
-
   }
   // Called when the command is initially scheduled.
   @Override

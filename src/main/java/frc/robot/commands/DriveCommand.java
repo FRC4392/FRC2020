@@ -20,7 +20,6 @@ public class DriveCommand extends CommandBase {
     mDrivetrain = Drivetrain;
     mController = XboxController;
     addRequirements(mDrivetrain);
-
   }
 
   // Called when the command is initially scheduled.
@@ -32,7 +31,6 @@ public class DriveCommand extends CommandBase {
   @Override
   public void execute() {
     mDrivetrain.drive(mController.getY(Hand.kLeft), mController.getX(Hand.kLeft), mController.getX(Hand.kRight));
-
   }
 
   // Called once the command ends or is interrupted.
