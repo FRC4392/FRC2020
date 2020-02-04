@@ -13,6 +13,7 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.ControlType;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
+import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
@@ -23,6 +24,8 @@ public class Climber extends SubsystemBase {
 
   CANEncoder mCanEncoder;
   CANPIDController mPidController;
+
+  Preferences mRobotPreferences = Preferences.getInstance();
 
   public Double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput, maxRPM;
 
@@ -41,13 +44,13 @@ public class Climber extends SubsystemBase {
 
     mLiftMotor2.follow(mLiftMotor1);
 
-    kP = 5e-5;
-    kI = 1e-6;
-    kD = 0.0;
-    kIz = 0.0;
-    kFF = 0.0;
-    kMaxOutput = 1.0;
-    kMinOutput = -1.0;
+    kP = mRobotPreferences.getDouble("ShooterKP", 5e-5);
+    kI = mRobotPreferences.getDouble("ShooterKI", 1e-6);
+    kD = mRobotPreferences.getDouble("ShooterKD", 0.0);
+    kIz = mRobotPreferences.getDouble("ShooterKIz", 0.0);
+    kFF = mRobotPreferences.getDouble("ShooterKFF", 0.0);
+    kMaxOutput = mRobotPreferences.getDouble("ShooterKMaxOutput", 1.0);
+    kMinOutput = mRobotPreferences.getDouble("ShooterKMinOutput", -1.0);
     maxRPM = 5700.0;
 
     mPidController.setP(kP);
