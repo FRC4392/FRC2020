@@ -44,13 +44,13 @@ public class Climber extends SubsystemBase {
 
     mLiftMotor2.follow(mLiftMotor1);
 
-    kP = mRobotPreferences.getDouble("ShooterKP", 5e-5);
-    kI = mRobotPreferences.getDouble("ShooterKI", 1e-6);
-    kD = mRobotPreferences.getDouble("ShooterKD", 0.0);
-    kIz = mRobotPreferences.getDouble("ShooterKIz", 0.0);
-    kFF = mRobotPreferences.getDouble("ShooterKFF", 0.0);
-    kMaxOutput = mRobotPreferences.getDouble("ShooterKMaxOutput", 1.0);
-    kMinOutput = mRobotPreferences.getDouble("ShooterKMinOutput", -1.0);
+    kP = mRobotPreferences.getDouble("ClimberKP", 5e-5);
+    kI = mRobotPreferences.getDouble("ClimberKI", 1e-6);
+    kD = mRobotPreferences.getDouble("ClimberKD", 0.0);
+    kIz = mRobotPreferences.getDouble("ClimberKIz", 0.0);
+    kFF = mRobotPreferences.getDouble("ClimberKFF", 0.0);
+    kMaxOutput = mRobotPreferences.getDouble("ClimberKMaxOutput", 1.0);
+    kMinOutput = mRobotPreferences.getDouble("ClimberKMinOutput", -1.0);
     maxRPM = 5700.0;
 
     mPidController.setP(kP);
