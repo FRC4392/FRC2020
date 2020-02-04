@@ -8,16 +8,16 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Intake;
 
-public class Outtake extends CommandBase {
-  public final Intake mOuttake;
+public class IntakeCommand extends CommandBase {
+  public final frc.robot.subsystems.Intake mIntake;
 
-  public Outtake(Intake Outtake) {
-    mOuttake = Outtake;
-    addRequirements(mOuttake);
+  public IntakeCommand(frc.robot.subsystems.Intake Intake) {
+    mIntake = Intake;
+    addRequirements(mIntake);
 
   }
+
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
@@ -26,7 +26,7 @@ public class Outtake extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    mOuttake.setSpeed(-1.0);
+    mIntake.setSpeed(1.0);
   }
 
   // Called once the command ends or is interrupted.

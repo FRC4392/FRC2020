@@ -8,13 +8,14 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.Shooter;
 
-public class Intake extends CommandBase {
-  public final frc.robot.subsystems.Intake mIntake;
+public class ManualShootCommand extends CommandBase {
+ public final Shooter mShooter;
 
-  public Intake(frc.robot.subsystems.Intake Intake) {
-    mIntake = Intake;
-    addRequirements(mIntake);
+  public ManualShootCommand(Shooter Shooter) {
+    mShooter = Shooter;
+    addRequirements(mShooter);
 
   }
 
@@ -26,7 +27,7 @@ public class Intake extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    mIntake.setSpeed(1.0);
+    mShooter.setVelocity();
   }
 
   // Called once the command ends or is interrupted.

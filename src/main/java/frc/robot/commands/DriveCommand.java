@@ -12,11 +12,11 @@ import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Drivetrain;
 
-public class Drive extends CommandBase {
+public class DriveCommand extends CommandBase {
   public final Drivetrain mDrivetrain;
   public XboxController mController;
   
-  public Drive(Drivetrain Drivetrain, XboxController XboxController) {
+  public DriveCommand(Drivetrain Drivetrain, XboxController XboxController) {
     mDrivetrain = Drivetrain;
     mController = XboxController;
     addRequirements(mDrivetrain);

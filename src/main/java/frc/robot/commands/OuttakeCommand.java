@@ -7,22 +7,17 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Climber;
+import frc.robot.subsystems.Intake;
 
-public class ManualHang extends CommandBase {
-  public final Climber mClimber;
-  public XboxController mController;
-  
-  public ManualHang(Climber Climber, XboxController Controller) {
-    mClimber = Climber;
-    mController = Controller;
-    addRequirements(mClimber);
+public class OuttakeCommand extends CommandBase {
+  public final Intake mOuttake;
+
+  public OuttakeCommand(Intake Outtake) {
+    mOuttake = Outtake;
+    addRequirements(mOuttake);
 
   }
-
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
@@ -31,8 +26,7 @@ public class ManualHang extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    mClimber.setOpenLoop(mController.getY(Hand.kLeft));
-
+    mOuttake.setSpeed(-1.0);
   }
 
   // Called once the command ends or is interrupted.

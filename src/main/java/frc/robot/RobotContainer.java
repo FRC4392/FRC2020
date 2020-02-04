@@ -11,16 +11,13 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.commands.*;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Limelight;
 import frc.robot.subsystems.Shooter;
-import frc.robot.commands.Drive;
-import frc.robot.commands.ManualHang;
-import frc.robot.commands.ManualShoot;
-import frc.robot.commands.ManualSlide;
-import frc.robot.commands.Outtake;
+import frc.robot.commands.DriveCommand;
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -59,11 +56,11 @@ public class RobotContainer {
     JoystickButton IntakeButton = new JoystickButton(mOperatorController, 2);
     JoystickButton OuttakeButton = new JoystickButton(mOperatorController, 3);
 
-    mDrivetrain.setDefaultCommand(new Drive(mDrivetrain, mDriverController));
-    mClimber.setDefaultCommand(new ManualHang(mClimber, mOperatorController));
-    ManualShootButton.whenPressed(new ManualShoot(mShooter));
-    IntakeButton.whenPressed(new frc.robot.commands.Intake(mIntake));
-    OuttakeButton.whenPressed(new Outtake(mIntake));
+    mDrivetrain.setDefaultCommand(new DriveCommand(mDrivetrain, mDriverController));
+    mClimber.setDefaultCommand(new ManualHangCommand(mClimber, mOperatorController));
+    ManualShootButton.whenPressed(new ManualShootCommand(mShooter));
+    IntakeButton.whenPressed(new IntakeCommand(mIntake));
+    OuttakeButton.whenPressed(new OuttakeCommand(mIntake));
   }
 
 

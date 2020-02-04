@@ -12,12 +12,12 @@ import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Climber;
 
-public class ManualSlide extends CommandBase {
+public class ManualSlideCommand extends CommandBase {
   public final Climber mClimber;
   public XboxController mController;
 
 
-  public ManualSlide(Climber Climber, XboxController Controller) {
+  public ManualSlideCommand(Climber Climber, XboxController Controller) {
    mClimber = Climber;
    mController = Controller;
    addRequirements(mClimber);
