@@ -40,12 +40,12 @@ public class Shooter extends SubsystemBase {
 
 
       kP = mRobotPreferences.getDouble("ShooterKP", 5e-5);
-      kI = 1e-6;
-      kD = 0.0;
-      kIz = 0.0;
-      kFF = 0.0;
-      kMaxOutput = 1.0;
-      kMinOutput = -1.0;
+      kI = mRobotPreferences.getDouble("ShooterKI", 1e-6);
+      kD = mRobotPreferences.getDouble("ShooterKD", 0.0);
+      kIz = mRobotPreferences.getDouble("ShooterKIz", 0.0);
+      kFF = mRobotPreferences.getDouble("ShooterKFF", 0.0);
+      kMaxOutput = mRobotPreferences.getDouble("ShooterKMaxOutput", 1.0);
+      kMinOutput = mRobotPreferences.getDouble("ShooterKMinOutput", -1.0);
       maxRPM = 5700.0;
 
       mPidController.setP(kP);
