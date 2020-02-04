@@ -34,14 +34,8 @@ public class Shooter extends SubsystemBase {
   public Shooter() {
     mWheelMotor = new CANSparkMax(61, MotorType.kBrushless);
     mWheelMotor2 = new CANSparkMax(62, MotorType.kBrushless);
-  }
-    public void setVelocity(double velocity) {
-      mPidController.setReference(velocity, ControlType.kVelocity);
 
-    }
-
-    public void ShooterInit() {
-      mPidController = mWheelMotor.getPIDController();
+    mPidController = mWheelMotor.getPIDController();
       mEncoder = mWheelMotor.getEncoder();
 
 
@@ -62,6 +56,15 @@ public class Shooter extends SubsystemBase {
       mPidController.setOutputRange(kMinOutput, kMaxOutput);
 
       mWheelMotor2.follow(mWheelMotor);
+
+  }
+    public void setVelocity(double velocity) {
+      mPidController.setReference(velocity, ControlType.kVelocity);
+
+    }
+
+    public void ShooterInit() {
+      
     }
     
   @Override
