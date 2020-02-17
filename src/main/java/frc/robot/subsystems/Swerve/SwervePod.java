@@ -7,6 +7,9 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.ControlType;
 
 import edu.wpi.first.wpilibj.Preferences;
+import edu.wpi.first.wpilibj.geometry.Pose2d;
+import edu.wpi.first.wpilibj.geometry.Rotation2d;
+import edu.wpi.first.wpilibj.kinematics.SwerveModuleState;
 
 
 public class SwervePod {
@@ -91,9 +94,6 @@ public class SwervePod {
         mDriveMotor.set(speed);
     }
 
-    //public void setWheelVelocity(double speed){
-    //    mDriveMotor.set(ControlMode.Velocity, speed);
-    //}
 
     public void stop(){
         mAzimuthMotor.set(0);
@@ -112,14 +112,6 @@ public class SwervePod {
         return mCanCoder.getAbsolutePosition();
     }
 
-    //public void setWheelPosition(int position){
-    //    mDriveMotor.setSelectedSensorPosition(position);
-    //}
-
-    //public int getWheelPosition(){
-    //    return mDriveMotor.getSelectedSensorPosition();
-    //}
-
     public CANSparkMax getAzimuth() {
         return mAzimuthMotor;
     }
@@ -137,5 +129,12 @@ public class SwervePod {
 
     public double getIncrementalPosition(){
         return mEncoder.getPosition();
+    }
+
+    public SwerveModuleState getState(){
+        SwerveModuleState state = new SwerveModuleState();
+        state.angle = Rotation2d.fromDegrees(mEncoder.getPosition());
+        state.speedMetersPerSecond = 0; //this needs to be updated to get the speed from the robot.
+        return new SwerveModuleState();
     }
 }

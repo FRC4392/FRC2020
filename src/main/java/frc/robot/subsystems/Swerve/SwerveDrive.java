@@ -17,26 +17,18 @@ public class SwerveDrive {
     double ws[] = new double[4];
     double wa[] = new double[4];
 
-    int wheelZeros[] = {3534,2444,1859,2998};
-
     public SwerveDrive(PigeonIMU gyro, double trackWidth, double wheelBase, SwervePod pods[], boolean isFeildOriented){
         mGyro = gyro;
         mTrackWidth = trackWidth;
         mWheelBase = wheelBase;
         mPods = pods;
         mIsFieldOriented = isFeildOriented && mGyro.getState() != PigeonState.NoComm;
-        SmartDashboard.putString("Pidgeon State", mGyro.getState().toString());
         double radius = Math.hypot(wheelBase, trackWidth);
         kLengthComponent = wheelBase / radius;
         kWidthComponent = trackWidth / radius;
-
-
-        //for (int i=0; i<4; i++){
-          //pods[i].setAzimuthZero(wheelZeros[i]);
-        //}
     }
 
-    public void setAll(double azimuth, double drive){
+    public void setAllOpenLoop(double azimuth, double drive){
         for (SwervePod pod : mPods){
             pod.setOpenLoop(azimuth, drive);
         }
