@@ -12,6 +12,10 @@ import com.ctre.phoenix.sensors.PigeonIMU;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
+import edu.wpi.first.wpilibj.geometry.Rotation2d;
+import edu.wpi.first.wpilibj.geometry.Translation2d;
+import edu.wpi.first.wpilibj.kinematics.SwerveDriveKinematics;
+import edu.wpi.first.wpilibj.kinematics.SwerveDriveOdometry;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.subsystems.swerve.SwerveDrive;
@@ -19,8 +23,8 @@ import frc.robot.subsystems.swerve.SwervePod;
 
 public class Drivetrain extends SubsystemBase {
 
-  CANSparkMax mDriveMotor1 = new CANSparkMax(11, MotorType.kBrushless);
-  CANSparkMax mDriveMotor2 = new CANSparkMax(12, MotorType.kBrushless);
+  private final CANSparkMax mDriveMotor1 = new CANSparkMax(11, MotorType.kBrushless);
+  private final CANSparkMax mDriveMotor2 = new CANSparkMax(12, MotorType.kBrushless);
   CANSparkMax mDriveMotor3 = new CANSparkMax(13, MotorType.kBrushless);
   CANSparkMax mDriveMotor4 = new CANSparkMax(14, MotorType.kBrushless);
 
@@ -46,7 +50,8 @@ public class Drivetrain extends SubsystemBase {
 
   SwerveDrive swerveDrive = new SwerveDrive(pidgey, mTrackWidth, mWheelBase, new SwervePod[]{pod2, pod1, pod4, pod3}, true);
 
-  kinematics.DifferentialDriveOdementry DifferentialDriveOdementry;
+  SwerveDriveKinematics driveKinematics = new SwerveDriveKinematics(new Translation2d(-15,15), new Translation2d(15, 15), new Translation2d(-15, -15), new Translation2d(15,-15));
+  SwerveDriveOdometry driveOdometry = new SwerveDriveOdometry(driveKinematics, Rotation2d.fromDegrees(pidgey.getFusedHeading()));
 
   /**
    * Creates a new Drivetrain.
@@ -71,9 +76,11 @@ public class Drivetrain extends SubsystemBase {
     SmartDashboard.putNumber("Wheel2Setpoint",pod2.getSetpoint());
     SmartDashboard.putNumber("Wheel3Setpoint",pod3.getSetpoint());
     SmartDashboard.putNumber("Wheel4Setpoint",pod4.getSetpoint());
+
+    driveOdometry.update(Rotation2d.fromDegrees(pidgey.getFusedHeading()), pod1.getState(), pod2.getState(), pod3.getState(), pod4.getState());
   }
 
   public double getHeading() {
-    return Math.IEEEremainder(pidgey.getAngle(), 360) * (DriveConstants.mPidgeyReversed);
+    return Math.IEEEremainder(pidgey.getFusedHeading(), 360);
   }
 }
