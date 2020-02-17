@@ -12,6 +12,7 @@ import com.ctre.phoenix.sensors.PigeonIMU;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.subsystems.swerve.SwerveDrive;
 import frc.robot.subsystems.swerve.SwervePod;
@@ -43,12 +44,12 @@ public class Drivetrain extends SubsystemBase {
   SwervePod pod3 = new SwervePod(mDriveMotor3, mAzimuth3, mCanCoder3);
   SwervePod pod4 = new SwervePod(mDriveMotor4, mAzimuth4, mCanCoder4);
 
-  SwerveDrive swerveDrive = new SwerveDrive(pidgey, mTrackWidth, mWheelBase, new SwervePod[]{pod1, pod2, pod3, pod4}, true);
+  SwerveDrive swerveDrive = new SwerveDrive(pidgey, mTrackWidth, mWheelBase, new SwervePod[]{pod2, pod1, pod4, pod3}, true);
   /**
    * Creates a new Drivetrain.
    */
   public Drivetrain() {
-
+    
   }
 
   public void drive(double forward, double strafe, double azimuth){
@@ -58,5 +59,14 @@ public class Drivetrain extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    SmartDashboard.putNumber("Wheel1Position", pod1.getIncrementalPosition());
+    SmartDashboard.putNumber("Wheel2Position", pod2.getIncrementalPosition());
+    SmartDashboard.putNumber("Wheel3Position", pod3.getIncrementalPosition());
+    SmartDashboard.putNumber("Wheel4Position", pod4.getIncrementalPosition());
+
+    SmartDashboard.putNumber("Wheel1Setpoint",pod1.getSetpoint());
+    SmartDashboard.putNumber("Wheel2Setpoint",pod2.getSetpoint());
+    SmartDashboard.putNumber("Wheel3Setpoint",pod3.getSetpoint());
+    SmartDashboard.putNumber("Wheel4Setpoint",pod4.getSetpoint());
   }
 }

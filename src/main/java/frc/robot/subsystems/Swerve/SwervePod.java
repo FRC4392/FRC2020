@@ -6,37 +6,54 @@ import com.revrobotics.CANPIDController;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.ControlType;
 
+import edu.wpi.first.wpilibj.Preferences;
+
 
 public class SwervePod {
-    private static final int TICKS_PER_ROTATION = 4096;
+    private static final int TICKS_PER_ROTATION = 360;
     private final CANSparkMax mDriveMotor;
     private final CANSparkMax mAzimuthMotor;
+    private final Preferences mRobotPreferences;
     CANEncoder mEncoder;
     CANPIDController mPIDController;
     CANCoder mCanCoder;
     private boolean isInverted = false;
+    private Double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput, maxRPM, setpoint;
 
     public SwervePod(CANSparkMax drive, CANSparkMax azimuth, CANCoder canCoder) {
         this.mDriveMotor = drive;
         this.mAzimuthMotor = azimuth;
         this.mCanCoder = canCoder;
 
+        setpoint = 0.0;
+
+        mAzimuthMotor.getEncoder().setPositionConversionFactor(25.08);
+
+        mDriveMotor.setInverted(true);
+
+        mRobotPreferences = Preferences.getInstance();
+
         mEncoder = mAzimuthMotor.getEncoder();
         mPIDController = mAzimuthMotor.getPIDController();
 
-        /**zimuth.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
+        kP = mRobotPreferences.getDouble("SwerveKP", 1);
+        kI = mRobotPreferences.getDouble("SwerveKI", 0.0);
+        kD = mRobotPreferences.getDouble("SwerveKD", 0.0);
+        kIz = mRobotPreferences.getDouble("SwerveKIz", 0.0);
+        kFF = mRobotPreferences.getDouble("SwerveKFF", 0.0);
+        kMaxOutput = mRobotPreferences.getDouble("SwerveKMaxOutput", 1.0);
+        kMinOutput = mRobotPreferences.getDouble("SwerveKMinOutput", -1.0);
+        
+        maxRPM = 5700.0;
 
-        azimuth.configNominalOutputForward(0);
-        azimuth.configNominalOutputReverse(0);
-        azimuth.configPeakOutputForward(1);
-        azimuth.configPeakOutputReverse(-1);
+        mPIDController.setP(kP);
+        mPIDController.setI(kI);
+        mPIDController.setD(kD);
+        mPIDController.setIZone(kIz);
+        mPIDController.setFF(kFF);
+        mPIDController.setOutputRange(kMinOutput, kMaxOutput);
 
-        azimuth.selectProfileSlot(0, 0);
-        azimuth.configMotionCruiseVelocity(2000);
-        azimuth.configMotionAcceleration(20000);
-        azimuth.config_kF(0, 0.51);
-        azimuth.config_kP(0, 7);
-        azimuth.setSensorPhase(true);**/
+        setAzimuthZero();
     }
     
     public void set(double angle, double driveSpeed){
@@ -51,7 +68,8 @@ public class SwervePod {
             azimuthError -= Math.copySign(0.5 * TICKS_PER_ROTATION, azimuthError);
             driveSpeed = -driveSpeed;
         }
-        mPIDController.setReference(azimuthError + azimuthPosition, ControlType.kPosition);
+        setpoint = azimuthError + azimuthPosition;
+        mPIDController.setReference(setpoint, ControlType.kPosition);
         mDriveMotor.set(driveSpeed);
   }
     
@@ -83,12 +101,9 @@ public class SwervePod {
 
     }
 
-    public void setAzimuthZero(int zero) {
-        double azimuthSetpoint = getAzimuthAbsolutePosition() - zero;
+    public void setAzimuthZero() {
         //calculate position to increments
-        //672PPR
-        double cpr = 672.0/360.0;
-        double position = azimuthSetpoint * cpr;
+        double position = mCanCoder.getAbsolutePosition();
 
         mEncoder.setPosition(position);
     }
@@ -114,5 +129,13 @@ public class SwervePod {
 
     public boolean isInverted() {
         return isInverted;
+    }
+    
+    public double getSetpoint(){
+        return setpoint;
+    }
+
+    public double getIncrementalPosition(){
+        return mEncoder.getPosition();
     }
 }

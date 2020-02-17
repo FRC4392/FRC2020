@@ -25,7 +25,7 @@ public class SwerveDrive {
         mWheelBase = wheelBase;
         mPods = pods;
         mIsFieldOriented = isFeildOriented && mGyro.getState() != PigeonState.NoComm;
-
+        SmartDashboard.putString("Pidgeon State", mGyro.getState().toString());
         double radius = Math.hypot(wheelBase, trackWidth);
         kLengthComponent = wheelBase / radius;
         kWidthComponent = trackWidth / radius;
@@ -50,14 +50,14 @@ public class SwerveDrive {
 
     public void drive(double forward, double strafe, double azimuth) {
 
-      if(Math.abs(forward) < 0.02){
+      if(Math.abs(forward) < 0.1){
         forward = 0;
       }
 
-      if(Math.abs(strafe) < 0.02){
+      if(Math.abs(strafe) < 0.1){
         strafe = 0;
       }
-      if(Math.abs(azimuth) < 0.02){
+      if(Math.abs(azimuth) < 0.1){
         azimuth = 0;
       }
 
@@ -90,11 +90,6 @@ public class SwerveDrive {
         wa[1] = Math.atan2(b, c) * 0.5 / Math.PI;
         wa[2] = Math.atan2(a, d) * 0.5 / Math.PI;
         wa[3] = Math.atan2(a, c) * 0.5 / Math.PI;
-
-        SmartDashboard.putNumber("Wheel1Azimuth", wa[0]);
-        SmartDashboard.putNumber("Wheel2Azimuth", wa[1]);
-        SmartDashboard.putNumber("Wheel3Azimuth", wa[2]);
-        SmartDashboard.putNumber("Wheel4Azimuth", wa[3]);
     
         // normalize wheel speed
         final double maxWheelSpeed = Math.max(Math.max(ws[0], ws[1]), Math.max(ws[2], ws[3]));
