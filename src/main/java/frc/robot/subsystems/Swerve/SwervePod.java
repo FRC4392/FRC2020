@@ -32,8 +32,6 @@ public class SwervePod {
 
         mAzimuthMotor.getEncoder().setPositionConversionFactor(25.08);
 
-        mDriveMotor.getEncoder().setSpeed(0);
-
         mDriveMotor.setInverted(true);
 
         mRobotPreferences = Preferences.getInstance();
