@@ -17,6 +17,7 @@ public class SwervePod {
     private final CANSparkMax mAzimuthMotor;
     private final Preferences mRobotPreferences;
     CANEncoder mAzimuthEncoder;
+    CANEncoder mDriveEncoder;
     CANPIDController mPIDController;
     CANCoder mAbsoluteEncoder;
     private boolean isInverted = false;
@@ -30,6 +31,8 @@ public class SwervePod {
         setpoint = 0.0;
 
         mAzimuthMotor.getEncoder().setPositionConversionFactor(25.08);
+
+        mDriveEncoder.getEncoder().setSpeed(0);
 
         mDriveMotor.setInverted(true);
 
