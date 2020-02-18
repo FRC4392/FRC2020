@@ -33,6 +33,16 @@ public class Climber extends SubsystemBase {
     Open(),
     Closed();
 
+    private final double Height;
+
+    ClimberPosition(double state){
+      Height = state;
+    }
+
+    private double getHeight() {
+      return Height;
+    }
+
   }
 
   /**
