@@ -14,6 +14,7 @@ import com.revrobotics.ControlType;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.Preferences;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Shooter extends SubsystemBase {
@@ -22,6 +23,7 @@ public class Shooter extends SubsystemBase {
   CANSparkMax mWheelMotor2;
   CANPIDController mPidController;
   CANEncoder mEncoder;
+  Solenoid mSolenoid;
 
   private Double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput, maxRPM;
 
@@ -59,6 +61,10 @@ public class Shooter extends SubsystemBase {
     public void setVelocity(double velocity) {
       mPidController.setReference(velocity, ControlType.kVelocity);
 
+    }
+
+    public void setHood(){
+      
     }
 
     public void ShooterInit() {
