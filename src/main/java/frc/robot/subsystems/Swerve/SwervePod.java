@@ -134,8 +134,8 @@ public class SwervePod {
         return mAzimuthEncoder.getPosition();
     }
 
-    public void getVelocity() {
-            
+    public double getVelocity() {
+            return mDriveEncoder.getVelocity();
     }
 
     public SwerveModuleState getState(){
