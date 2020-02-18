@@ -142,6 +142,6 @@ public class SwervePod {
         SwerveModuleState state = new SwerveModuleState();
         state.angle = Rotation2d.fromDegrees(mAzimuthEncoder.getPosition());
         state.speedMetersPerSecond = getVelocity(); //this needs to be updated to get the speed from the robot.
-        return new SwerveModuleState();
+        return state;
     }
 }
