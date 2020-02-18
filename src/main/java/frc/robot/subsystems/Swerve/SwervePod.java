@@ -30,7 +30,7 @@ public class SwervePod {
 
         setpoint = 0.0;
 
-        mAzimuthMotor.getEncoder().setPositionConversionFactor(25.08);
+        mAzimuthMotor.getEncoder().setPositionConversionFactor(4.712);
 
         mDriveMotor.setInverted(true);
 
