@@ -30,7 +30,7 @@ public class SwervePod {
 
         setpoint = 0.0;
 
-        mAzimuthMotor.getEncoder().setPositionConversionFactor(4.712);
+        mAzimuthMotor.getEncoder().setPositionConversionFactor(25.08);
 
         mDriveMotor.setInverted(true);
 
@@ -40,7 +40,7 @@ public class SwervePod {
         mDriveEncoder = mDriveMotor.getEncoder();
         mPIDController = mAzimuthMotor.getPIDController();
 
-        mDriveEncoder.setVelocityConversionFactor(1);
+        mDriveEncoder.setVelocityConversionFactor(4.712);
 
         kP = mRobotPreferences.getDouble("SwerveKP", 1);
         kI = mRobotPreferences.getDouble("SwerveKI", 0.0);
@@ -142,6 +142,6 @@ public class SwervePod {
         SwerveModuleState state = new SwerveModuleState();
         state.angle = Rotation2d.fromDegrees(mAzimuthEncoder.getPosition());
         state.speedMetersPerSecond = getVelocity(); //this needs to be updated to get the speed from the robot.
-        return state;
+        return new SwerveModuleState();
     }
 }
