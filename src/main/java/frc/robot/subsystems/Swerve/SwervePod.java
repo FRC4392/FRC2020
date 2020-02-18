@@ -39,6 +39,7 @@ public class SwervePod {
         mRobotPreferences = Preferences.getInstance();
 
         mAzimuthEncoder = mAzimuthMotor.getEncoder();
+        mDriveEncoder = mDriveEncoder.getEncoder();
         mPIDController = mAzimuthMotor.getPIDController();
 
         kP = mRobotPreferences.getDouble("SwerveKP", 1);
