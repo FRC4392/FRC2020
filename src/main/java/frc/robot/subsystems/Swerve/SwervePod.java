@@ -134,6 +134,10 @@ public class SwervePod {
         return mAzimuthEncoder.getPosition();
     }
 
+    public void getVelocity() {
+            
+    }
+
     public SwerveModuleState getState(){
         SwerveModuleState state = new SwerveModuleState();
         state.angle = Rotation2d.fromDegrees(mAzimuthEncoder.getPosition());
