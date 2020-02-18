@@ -30,8 +30,10 @@ public class Climber extends SubsystemBase {
   public Double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput, maxRPM;
 
   public enum ClimberPosition{
-    Open(),
-    Closed();
+    Down(0.0),
+    BarHeight(0.0),
+    ClimbHeight(0.0),
+    WheelOfFortune(0.0);
 
     private final double Height;
 
