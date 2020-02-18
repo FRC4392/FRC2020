@@ -7,7 +7,6 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.ControlType;
 
 import edu.wpi.first.wpilibj.Preferences;
-import edu.wpi.first.wpilibj.geometry.Pose2d;
 import edu.wpi.first.wpilibj.geometry.Rotation2d;
 import edu.wpi.first.wpilibj.kinematics.SwerveModuleState;
 
@@ -17,16 +16,16 @@ public class SwervePod {
     private final CANSparkMax mDriveMotor;
     private final CANSparkMax mAzimuthMotor;
     private final Preferences mRobotPreferences;
-    CANEncoder mEncoder;
+    CANEncoder mAzimuthEncoder;
     CANPIDController mPIDController;
-    CANCoder mCanCoder;
+    CANCoder mAbsoluteEncoder;
     private boolean isInverted = false;
     private Double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput, maxRPM, setpoint;
 
     public SwervePod(CANSparkMax drive, CANSparkMax azimuth, CANCoder canCoder) {
         this.mDriveMotor = drive;
         this.mAzimuthMotor = azimuth;
-        this.mCanCoder = canCoder;
+        this.mAbsoluteEncoder = canCoder;
 
         setpoint = 0.0;
 
@@ -36,7 +35,7 @@ public class SwervePod {
 
         mRobotPreferences = Preferences.getInstance();
 
-        mEncoder = mAzimuthMotor.getEncoder();
+        mAzimuthEncoder = mAzimuthMotor.getEncoder();
         mPIDController = mAzimuthMotor.getPIDController();
 
         kP = mRobotPreferences.getDouble("SwerveKP", 1);
@@ -63,7 +62,7 @@ public class SwervePod {
 
         angle *= TICKS_PER_ROTATION;
         
-        double azimuthPosition = mEncoder.getPosition();
+        double azimuthPosition = mAzimuthEncoder.getPosition();
         double azimuthError = Math.IEEEremainder(angle - azimuthPosition, TICKS_PER_ROTATION);
 
         isInverted = Math.abs(azimuthError) > 0.25 * TICKS_PER_ROTATION;
@@ -103,13 +102,13 @@ public class SwervePod {
 
     public void setAzimuthZero() {
         //calculate position to increments
-        double position = mCanCoder.getAbsolutePosition();
+        double position = mAbsoluteEncoder.getAbsolutePosition();
 
-        mEncoder.setPosition(position);
+        mAzimuthEncoder.setPosition(position);
     }
 
     public double getAzimuthAbsolutePosition(){
-        return mCanCoder.getAbsolutePosition();
+        return mAbsoluteEncoder.getAbsolutePosition();
     }
 
     public CANSparkMax getAzimuth() {
@@ -128,12 +127,12 @@ public class SwervePod {
     }
 
     public double getIncrementalPosition(){
-        return mEncoder.getPosition();
+        return mAzimuthEncoder.getPosition();
     }
 
     public SwerveModuleState getState(){
         SwerveModuleState state = new SwerveModuleState();
-        state.angle = Rotation2d.fromDegrees(mEncoder.getPosition());
+        state.angle = Rotation2d.fromDegrees(mAzimuthEncoder.getPosition());
         state.speedMetersPerSecond = 0; //this needs to be updated to get the speed from the robot.
         return new SwerveModuleState();
     }

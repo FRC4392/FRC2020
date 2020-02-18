@@ -78,6 +78,10 @@ public class Drivetrain extends SubsystemBase {
     SmartDashboard.putNumber("Wheel4Setpoint",pod4.getSetpoint());
 
     driveOdometry.update(Rotation2d.fromDegrees(pidgey.getFusedHeading()), pod1.getState(), pod2.getState(), pod3.getState(), pod4.getState());
+
+    SmartDashboard.putNumber("Swerve Y", driveOdometry.getPoseMeters().getTranslation().getY());
+    SmartDashboard.putNumber("Swerve X", driveOdometry.getPoseMeters().getTranslation().getX());
+    SmartDashboard.putNumber("Swerve Rotation", driveOdometry.getPoseMeters().getRotation().getDegrees());
   }
 
   public double getHeading() {
