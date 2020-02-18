@@ -29,6 +29,12 @@ public class Climber extends SubsystemBase {
 
   public Double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput, maxRPM;
 
+  public enum ClimberPosition{
+    Open(),
+    Closed();
+
+  }
+
   /**
    * Creates a new Climber.
    */
