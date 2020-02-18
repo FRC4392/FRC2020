@@ -30,7 +30,7 @@ public class ManualHangCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    mClimber.setOpenLoop(mController.getY(Hand.kLeft));
+    mClimber.setOpenLoop(mController.getY(Hand.kLeft) * 0.5);
   }
 
   // Called once the command ends or is interrupted.
