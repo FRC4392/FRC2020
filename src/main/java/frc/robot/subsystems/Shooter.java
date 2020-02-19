@@ -72,6 +72,9 @@ public class Shooter extends SubsystemBase {
 
     mWheelMotor2.follow(mWheelMotor);
 
+    mWheelMotor.burnFlash();
+    mWheelMotor2.burnFlash();
+
   }
     public void setVelocity(double velocity) {
       mPidController.setReference(velocity, ControlType.kVelocity);

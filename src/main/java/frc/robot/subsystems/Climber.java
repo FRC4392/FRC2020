@@ -81,29 +81,24 @@ public class Climber extends SubsystemBase {
     mPidController.setFF(kFF);
     mPidController.setOutputRange(kMinOutput, kMaxOutput);
 
-    SmartDashboard.putNumber("P Gain", kP);
-    SmartDashboard.putNumber("I Gain", kI);
-    SmartDashboard.putNumber("D Gain", kD);
-    SmartDashboard.putNumber("I Zone", kIz);
-    SmartDashboard.putNumber("Feed Forward", kFF);
-    SmartDashboard.putNumber("Max Output", kMaxOutput);
-    SmartDashboard.putNumber("Min Output", kMinOutput);
+    mLiftMotor1.setIdleMode(CANSparkMax.IdleMode.kBrake);
+    mLiftMotor2.setIdleMode(CANSparkMax.IdleMode.kBrake);
+
+    mLiftMotor1.burnFlash();
+    mLiftMotor2.burnFlash();
 
   }
 
   public void setOpenLoop(double speed) {
     mLiftMotor1.set(speed);
-    
   }
 
   public void setPosition(double position) {
    mPidController.setReference(position, ControlType.kPosition);
-    
   }
 
   public void setStrafe(double speed) {
     mHookMotor.set(speed);
-    
   }
 
   @Override
