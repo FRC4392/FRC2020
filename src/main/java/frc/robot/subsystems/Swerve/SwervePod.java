@@ -82,6 +82,21 @@ public class SwervePod {
         mPIDController.setReference(setpoint, ControlType.kPosition);
         mDriveMotor.set(driveSpeed);
   }
+
+  public void set(Rotation2d rotation, double speed){
+
+      double azimuthPosition = mAzimuthEncoder.getPosition();
+      double azimuthError = Math.IEEEremainder(rotation.getDegrees() - azimuthPosition, TICKS_PER_ROTATION);
+
+      isInverted = Math.abs(azimuthError) > 0.25 * TICKS_PER_ROTATION;
+      if (isInverted) {
+          azimuthError -= Math.copySign(0.5 * TICKS_PER_ROTATION, azimuthError);
+          speed = -speed;
+      }
+      setpoint = azimuthError + azimuthPosition;
+      mPIDController.setReference(setpoint, ControlType.kPosition);
+      mDriveMotor.set(speed);
+  }
     
     public void setOpenLoop(double azimuthSpeed, double driveSpeed){
         mDriveMotor.set(driveSpeed);
@@ -110,7 +125,7 @@ public class SwervePod {
 
     public void setAzimuthZero() {
         //calculate position to increments
-        double position = mAbsoluteEncoder.getAbsolutePosition();
+        double position = getAzimuthAbsolutePosition();
 
         mAzimuthEncoder.setPosition(position);
     }
@@ -146,6 +161,6 @@ public class SwervePod {
         SwerveModuleState state = new SwerveModuleState();
         state.angle = Rotation2d.fromDegrees(mAzimuthEncoder.getPosition());
         state.speedMetersPerSecond = getVelocity(); //this needs to be updated to get the speed from the robot.
-        return new SwerveModuleState();
+        return state;
     }
 }
