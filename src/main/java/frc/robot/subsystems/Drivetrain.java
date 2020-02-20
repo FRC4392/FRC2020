@@ -64,6 +64,10 @@ public class Drivetrain extends SubsystemBase {
     swerveDrive.drive(forward, strafe, azimuth);
   }
 
+  public void stop(){
+    swerveDrive.stop();
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

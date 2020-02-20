@@ -28,6 +28,9 @@ public class SwervePod {
         this.mAzimuthMotor = azimuth;
         this.mAbsoluteEncoder = canCoder;
 
+        mDriveMotor.restoreFactoryDefaults();
+        mAzimuthMotor.restoreFactoryDefaults();
+
         setpoint = 0.0;
 
         mAzimuthMotor.getEncoder().setPositionConversionFactor(25.08);

@@ -24,6 +24,7 @@ public class SwerveDrive {
         mWheelBase = wheelBase;
         mPods = pods;
         mIsFieldOriented = isFeildOriented && mGyro.getState() != PigeonState.NoComm;
+
         double radius = Math.hypot(wheelBase, trackWidth);
         kLengthComponent = wheelBase / radius;
         kWidthComponent = trackWidth / radius;
