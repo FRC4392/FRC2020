@@ -53,9 +53,9 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    JoystickButton ManualShootButton = new JoystickButton( mOperatorController,1);
+    JoystickButton ManualShootButton = new JoystickButton( mOperatorController,3);
     JoystickButton IntakeButton = new JoystickButton(mOperatorController, 2);
-    JoystickButton OuttakeButton = new JoystickButton(mOperatorController, 3);
+    JoystickButton OuttakeButton = new JoystickButton(mOperatorController, 1);
 
     mDrivetrain.setDefaultCommand(new DriveCommand(mDrivetrain, mDriverController));
     mClimber.setDefaultCommand(new ManualHangCommand(mClimber, mOperatorController));

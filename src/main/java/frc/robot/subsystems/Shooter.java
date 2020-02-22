@@ -77,7 +77,7 @@ public class Shooter extends SubsystemBase {
 
   }
     public void setVelocity(double velocity) {
-      mPidController.setReference(velocity, ControlType.kVelocity);
+      mPidController.setReference(mWheelMotor.setSpeed(speed));
     }
 
     public void setHood(HoodPosition position){
