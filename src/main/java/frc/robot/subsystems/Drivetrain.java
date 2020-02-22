@@ -71,7 +71,7 @@ public class Drivetrain extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    SmartDashboard.putNumber("Wheel1Position", pod1.getIncrementalPosition());
+    /*SmartDashboard.putNumber("Wheel1Position", pod1.getIncrementalPosition());
     SmartDashboard.putNumber("Wheel2Position", pod2.getIncrementalPosition());
     SmartDashboard.putNumber("Wheel3Position", pod3.getIncrementalPosition());
     SmartDashboard.putNumber("Wheel4Position", pod4.getIncrementalPosition());
@@ -85,6 +85,6 @@ public class Drivetrain extends SubsystemBase {
 
     SmartDashboard.putNumber("Swerve Y", driveOdometry.getPoseMeters().getTranslation().getY());
     SmartDashboard.putNumber("Swerve X", driveOdometry.getPoseMeters().getTranslation().getX());
-    SmartDashboard.putNumber("Swerve Rotation", driveOdometry.getPoseMeters().getRotation().getDegrees());
+    SmartDashboard.putNumber("Swerve Rotation", driveOdometry.getPoseMeters().getRotation().getDegrees());*/
   }
 }

@@ -26,7 +26,7 @@ public class Climber extends SubsystemBase {
     private CANEncoder mCanEncoder;
     private CANPIDController mPidController;
 
-    private Solenoid mSolenoid;
+    private Solenoid mSolenoid = new Solenoid(2);
 
     private Preferences mRobotPreferences = Preferences.getInstance();
 
@@ -124,7 +124,7 @@ public class Climber extends SubsystemBase {
 
     @Override
     public void periodic(){
-      double currPos = mCanEncoder.getPosition();
+      /**double currPos = mCanEncoder.getPosition();
       double error = currPos - targetPosition;
       double currVelocity = mCanEncoder.getVelocity();
 
@@ -137,7 +137,6 @@ public class Climber extends SubsystemBase {
         case ManualMove:
         case ManualStop:
         case Positioning:
-        case PositionHold:
+        case PositionHold:**/
       }
     }
-}
