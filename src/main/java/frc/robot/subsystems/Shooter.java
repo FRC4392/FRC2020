@@ -15,6 +15,7 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Shooter extends SubsystemBase {
@@ -75,8 +76,6 @@ public class Shooter extends SubsystemBase {
     mWheelMotor.burnFlash();
     mWheelMotor2.burnFlash();
 
-    mShooter.setVelocity(0.0);
-
   }
     public void setVelocity(double velocity) {
       mWheelMotor.set(velocity);
@@ -88,6 +87,6 @@ public class Shooter extends SubsystemBase {
     
   @Override
   public void periodic() {
-    // This method will be called once per scheduler run
+    SmartDashboard.putNumber("ShooterSpeed", mEncoder.getVelocity());
   }
 }
