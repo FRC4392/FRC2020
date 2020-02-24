@@ -75,6 +75,8 @@ public class Shooter extends SubsystemBase {
     mWheelMotor.burnFlash();
     mWheelMotor2.burnFlash();
 
+    mShooter.setVelocity(0.0);
+
   }
     public void setVelocity(double velocity) {
       mWheelMotor.set(velocity);
