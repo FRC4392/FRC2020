@@ -73,6 +73,8 @@ public class Shooter extends SubsystemBase {
 
     mWheelMotor2.follow(mWheelMotor);
 
+    mWheelMotor.setOpenLoopRampRate(1.0);
+
     mWheelMotor.burnFlash();
     mWheelMotor2.burnFlash();
 

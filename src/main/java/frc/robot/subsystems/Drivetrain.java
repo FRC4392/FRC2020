@@ -81,6 +81,11 @@ public class Drivetrain extends SubsystemBase {
     SmartDashboard.putNumber("Wheel3Setpoint",pod3.getSetpoint());
     SmartDashboard.putNumber("Wheel4Setpoint",pod4.getSetpoint());
 
+    SmartDashboard.putNumber("Wheel1AbsolutePosition", pod1.getAzimuthAbsolutePosition());
+    SmartDashboard.putNumber("Wheel2AbsolutePosition", pod2.getAzimuthAbsolutePosition());
+    SmartDashboard.putNumber("Wheel3AbsolutePosition", pod3.getAzimuthAbsolutePosition());
+    SmartDashboard.putNumber("Wheel4AbsolutePosition", pod4.getAzimuthAbsolutePosition());
+
     /*driveOdometry.update(swerveDrive.getHeading(), pod1.getState(), pod2.getState(), pod3.getState(), pod4.getState());
 
     SmartDashboard.putNumber("Swerve Y", driveOdometry.getPoseMeters().getTranslation().getY());
