@@ -59,9 +59,9 @@ public class RobotContainer {
 
     mDrivetrain.setDefaultCommand(new DriveCommand(mDrivetrain, mDriverController));
     mClimber.setDefaultCommand(new ManualHangCommand(mClimber, mOperatorController));
-    ManualShootButton.whenPressed(new ManualShootCommand(mShooter));
-    IntakeButton.whenPressed(new IntakeCommand(mIntake));
-    OuttakeButton.whenPressed(new OuttakeCommand(mIntake));
+    ManualShootButton.whileHeld(new ManualShootCommand(mShooter));
+    IntakeButton.whileHeld(new IntakeCommand(mIntake));
+    OuttakeButton.whileHeld(new OuttakeCommand(mIntake));
   }
 
 
