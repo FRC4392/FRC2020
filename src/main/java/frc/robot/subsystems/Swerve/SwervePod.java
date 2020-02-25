@@ -35,6 +35,7 @@ public class SwervePod {
 
         mAzimuthMotor.getEncoder().setPositionConversionFactor(25.08);
         mAzimuthMotor.setIdleMode(CANSparkMax.IdleMode.kBrake);
+        mAzimuthMotor.setSmartCurrentLimit(25);
 
         mDriveMotor.setInverted(true);
 
