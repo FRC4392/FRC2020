@@ -51,6 +51,9 @@ public class Shooter extends SubsystemBase {
     mWheelMotor = new CANSparkMax(61, MotorType.kBrushless);
     mWheelMotor2 = new CANSparkMax(62, MotorType.kBrushless);
 
+    mWheelMotor.setInverted(true);
+    mWheelMotor2.setInverted(true);
+
     mPidController = mWheelMotor.getPIDController();
     mEncoder = mWheelMotor.getEncoder();
 
