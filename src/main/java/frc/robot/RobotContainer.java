@@ -17,7 +17,6 @@ import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Limelight;
 import frc.robot.subsystems.Shooter;
-import frc.robot.commands.DriveCommand;
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -54,12 +53,16 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     JoystickButton ManualShootButton = new JoystickButton(mOperatorController,6);
+    JoystickButton ManualShootButton2 = new JoystickButton(mOperatorController, 0);
+    JoystickButton ManualShootButton3 = new JoystickButton(mOperatorController, 0);
     JoystickButton IntakeButton = new JoystickButton(mOperatorController, 2);
     JoystickButton OuttakeButton = new JoystickButton(mOperatorController, 5);
 
     mDrivetrain.setDefaultCommand(new DriveCommand(mDrivetrain, mDriverController));
     mClimber.setDefaultCommand(new ManualHangCommand(mClimber, mOperatorController));
     ManualShootButton.whileHeld(new ManualShootCommand(mShooter));
+    ManualShootButton2.whileHeld(new ManualShootCommand2(mShooter));
+    ManualShootButton3.whileHeld( new ManualShootCommand3(mShooter));
     IntakeButton.whileHeld(new IntakeCommand(mIntake));
     OuttakeButton.whileHeld(new OuttakeCommand(mIntake));
   }
