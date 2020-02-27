@@ -42,6 +42,12 @@ public class SwerveDrive {
         }
     }
 
+    public void checkAllZeros(){
+        for (SwervePod pod : mPods){
+            pod.checkAzimuthZero();
+        }
+    }
+
     public void drive(double forward, double strafe, double azimuth) {
 
         if (Math.abs(forward) < 0.1) {
