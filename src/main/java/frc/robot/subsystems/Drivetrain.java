@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.sensors.CANCoder;
 import com.ctre.phoenix.sensors.PigeonIMU;
+import com.revrobotics.CANEncoder;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
@@ -85,6 +86,8 @@ public class Drivetrain extends SubsystemBase {
     SmartDashboard.putNumber("Wheel2AbsolutePosition", pod2.getAzimuthAbsolutePosition());
     SmartDashboard.putNumber("Wheel3AbsolutePosition", pod3.getAzimuthAbsolutePosition());
     SmartDashboard.putNumber("Wheel4AbsolutePosition", pod4.getAzimuthAbsolutePosition());
+
+    swerveDrive.checkAllZeros();
 
     /*driveOdometry.update(swerveDrive.getHeading(), pod1.getState(), pod2.getState(), pod3.getState(), pod4.getState());
 

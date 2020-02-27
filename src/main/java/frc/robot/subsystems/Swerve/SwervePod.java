@@ -132,6 +132,13 @@ public class SwervePod {
         double position = getAzimuthAbsolutePosition();
 
         mAzimuthEncoder.setPosition(position);
+        System.out.println("Setting Absolute Zero");
+    }
+
+    public void checkAzimuthZero() {
+        if (Math.abs(mAzimuthEncoder.getPosition() - mAbsoluteEncoder.getAbsolutePosition()) > 5){
+            setAzimuthZero();
+        }
     }
 
     public double getAzimuthAbsolutePosition(){
