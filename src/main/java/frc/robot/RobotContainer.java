@@ -52,11 +52,11 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    JoystickButton ManualShootButton = new JoystickButton(mOperatorController,6);
+    JoystickButton ManualShootButton = new JoystickButton(mOperatorController,XboxController.Button.kX.value);
     JoystickButton ManualShootButton2 = new JoystickButton(mOperatorController, XboxController.Button.kA.value);
     JoystickButton ManualShootButton3 = new JoystickButton(mOperatorController, XboxController.Button.kB.value);
-    JoystickButton IntakeButton = new JoystickButton(mOperatorController, 2);
-    JoystickButton OuttakeButton = new JoystickButton(mOperatorController, 5);
+    JoystickButton IntakeButton = new JoystickButton(mOperatorController, XboxController.Button.kBumperLeft.value);
+    JoystickButton OuttakeButton = new JoystickButton(mOperatorController, XboxController.Button.kBumperRight.value);
 
     mDrivetrain.setDefaultCommand(new DriveCommand(mDrivetrain, mDriverController));
     mClimber.setDefaultCommand(new ManualHangCommand(mClimber, mOperatorController));

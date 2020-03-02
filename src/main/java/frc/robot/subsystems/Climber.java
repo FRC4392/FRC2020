@@ -26,7 +26,7 @@ public class Climber extends SubsystemBase {
     private CANEncoder mCanEncoder;
     private CANPIDController mPidController;
 
-    private Solenoid mSolenoid = new Solenoid(2);
+    private Solenoid mSolenoid = new Solenoid(1);
 
     private Preferences mRobotPreferences = Preferences.getInstance();
 
@@ -94,8 +94,8 @@ public class Climber extends SubsystemBase {
         mLiftMotor1.setIdleMode(CANSparkMax.IdleMode.kBrake);
         mLiftMotor2.setIdleMode(CANSparkMax.IdleMode.kBrake);
 
-        mLiftMotor1.burnFlash();
-        mLiftMotor2.burnFlash();
+        //mLiftMotor1.burnFlash();
+        //mLiftMotor2.burnFlash();
 
     }
 

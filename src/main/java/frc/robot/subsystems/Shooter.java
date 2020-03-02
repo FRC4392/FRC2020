@@ -12,6 +12,7 @@ import com.revrobotics.CANPIDController;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
+import com.revrobotics.ControlType;
 import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -57,8 +58,8 @@ public class Shooter extends SubsystemBase {
     mEncoder = mWheelMotor.getEncoder();
 
 
-    kP = mRobotPreferences.getDouble("ShooterKP", 5e-5);
-    kI = mRobotPreferences.getDouble("ShooterKI", 1e-6);
+    kP = mRobotPreferences.getDouble("ShooterKP", 0.005);
+    kI = mRobotPreferences.getDouble("ShooterKI", 0);
     kD = mRobotPreferences.getDouble("ShooterKD", 0.0);
     kIz = mRobotPreferences.getDouble("ShooterKIz", 0.0);
     kFF = mRobotPreferences.getDouble("ShooterKFF", 0.0);
@@ -75,7 +76,8 @@ public class Shooter extends SubsystemBase {
 
     mWheelMotor2.follow(mWheelMotor);
 
-    mWheelMotor.setOpenLoopRampRate(1.0);
+    mWheelMotor.setOpenLoopRampRate(0.0);
+    mWheelMotor.setClosedLoopRampRate(0.0);
 
     mWheelMotor.burnFlash();
     mWheelMotor2.burnFlash();
@@ -83,6 +85,10 @@ public class Shooter extends SubsystemBase {
   }
     public void setVelocity(double velocity) {
       mWheelMotor.set(velocity);
+    }
+
+    public void setPIDVelocity(double velocity) {
+      mPidController.setReference(velocity, ControlType.kVelocity);
     }
 
     public void setHood(HoodPosition position){

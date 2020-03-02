@@ -44,10 +44,10 @@ public class Drivetrain extends SubsystemBase {
   private final double mTrackWidth = 30.0;
   private final double mWheelBase = 30.0;
 
-  SwervePod pod1 = new SwervePod(mDriveMotor1, mAzimuth1, mCanCoder1);
-  SwervePod pod2 = new SwervePod(mDriveMotor2, mAzimuth2, mCanCoder2);
-  SwervePod pod3 = new SwervePod(mDriveMotor3, mAzimuth3, mCanCoder3);
-  SwervePod pod4 = new SwervePod(mDriveMotor4, mAzimuth4, mCanCoder4);
+  SwervePod pod1 = new SwervePod(mDriveMotor1, mAzimuth1, mCanCoder1, "1");
+  SwervePod pod2 = new SwervePod(mDriveMotor2, mAzimuth2, mCanCoder2, "2");
+  SwervePod pod3 = new SwervePod(mDriveMotor3, mAzimuth3, mCanCoder3, "3");
+  SwervePod pod4 = new SwervePod(mDriveMotor4, mAzimuth4, mCanCoder4, "4");
 
   SwerveDrive swerveDrive = new SwerveDrive(pidgey, mTrackWidth, mWheelBase, new SwervePod[]{pod2, pod1, pod4, pod3}, true);
 
@@ -72,7 +72,7 @@ public class Drivetrain extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    SmartDashboard.putNumber("Wheel1Position", pod1.getIncrementalPosition());
+    SmartDashboard.putNumber("Wheel1Position", pod1.getIncrementalPosition()%360.0);
     SmartDashboard.putNumber("Wheel2Position", pod2.getIncrementalPosition());
     SmartDashboard.putNumber("Wheel3Position", pod3.getIncrementalPosition());
     SmartDashboard.putNumber("Wheel4Position", pod4.getIncrementalPosition());

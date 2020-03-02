@@ -7,6 +7,7 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.CANifier;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
@@ -14,15 +15,26 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Indexer extends SubsystemBase {
   CANSparkMax mIndexerMotor;
+  CANifier mCanifier;
 
   public Indexer() {
     mIndexerMotor = new CANSparkMax(41, MotorType.kBrushless);
+
+    mCanifier = new CANifier(42);
 
     mIndexerMotor.burnFlash();
   }
 
   public void setSpeed(double speed) {
     mIndexerMotor.set(speed);
+  }
+
+  public boolean getStartEye(){
+    return mCanifier.getGeneralInput(CANifier.GeneralPin.SPI_MOSI_PWM1P);
+  }
+
+  public boolean getEndEye() {
+    return mCanifier.getGeneralInput(CANifier.GeneralPin.SPI_MISO_PWM2P);
   }
 
   @Override

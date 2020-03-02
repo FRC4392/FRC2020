@@ -1,10 +1,7 @@
 package frc.robot.subsystems.swerve;
 
 import com.ctre.phoenix.sensors.CANCoder;
-import com.revrobotics.CANEncoder;
-import com.revrobotics.CANPIDController;
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.ControlType;
+import com.revrobotics.*;
 
 import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.geometry.Rotation2d;
@@ -22,11 +19,14 @@ public class SwervePod {
     CANCoder mAbsoluteEncoder;
     private boolean isInverted = false;
     private Double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput, maxRPM, setpoint;
+    private String name = "";
 
-    public SwervePod(CANSparkMax drive, CANSparkMax azimuth, CANCoder canCoder) {
+    public SwervePod(CANSparkMax drive, CANSparkMax azimuth, CANCoder canCoder, String name) {
         this.mDriveMotor = drive;
         this.mAzimuthMotor = azimuth;
         this.mAbsoluteEncoder = canCoder;
+
+        this.name = name;
 
         mDriveMotor.restoreFactoryDefaults();
         mAzimuthMotor.restoreFactoryDefaults();
@@ -35,7 +35,7 @@ public class SwervePod {
 
         mAzimuthMotor.getEncoder().setPositionConversionFactor(25.08);
         mAzimuthMotor.setIdleMode(CANSparkMax.IdleMode.kBrake);
-        mAzimuthMotor.setSmartCurrentLimit(25);
+        mAzimuthMotor.setSmartCurrentLimit(10);
 
         mDriveMotor.setInverted(true);
 
@@ -130,13 +130,13 @@ public class SwervePod {
     public void setAzimuthZero() {
         //calculate position to increments
         double position = getAzimuthAbsolutePosition();
-
-        mAzimuthEncoder.setPosition(position);
-        System.out.println("Setting Absolute Zero");
+        System.out.println("Setting Absolute Zero of Module: " + name + "; Absolute: " + position + " Incremental: " + mAzimuthEncoder.getPosition());
+        CANError err = mAzimuthEncoder.setPosition(position);
+        System.out.println(err.toString());
     }
 
     public void checkAzimuthZero() {
-        if (Math.abs(mAzimuthEncoder.getPosition() - mAbsoluteEncoder.getAbsolutePosition()) > 5){
+        if (Math.abs((mAzimuthEncoder.getPosition()%180.0) - mAbsoluteEncoder.getAbsolutePosition()) > 10){
             setAzimuthZero();
         }
     }

@@ -50,14 +50,32 @@ public class SwerveDrive {
 
     public void drive(double forward, double strafe, double azimuth) {
 
-        if (Math.abs(forward) < 0.1) {
+        double tempforward = Math.pow(forward, 2);
+        if (forward < 0){
+            tempforward *= -1;
+        }
+        forward = tempforward;
+
+        double tempstrafe = Math.pow(strafe, 2);
+        if (strafe < 0){
+            tempstrafe *= -1;
+        }
+        strafe = tempstrafe;
+
+        double tempAzimuth = Math.pow(azimuth, 2);
+        if (azimuth < 0){
+            tempAzimuth *= -1;
+        }
+        azimuth = tempAzimuth;
+
+        if (Math.abs(forward) < 0.05) {
             forward = 0;
         }
 
-        if (Math.abs(strafe) < 0.1) {
+        if (Math.abs(strafe) < 0.05) {
             strafe = 0;
         }
-        if (Math.abs(azimuth) < 0.1) {
+        if (Math.abs(azimuth) < 0.05) {
             azimuth = 0;
         }
 
