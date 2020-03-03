@@ -20,6 +20,7 @@ public class Intake extends SubsystemBase {
   
   public Intake(){
     mRollerMotor = new VictorSPX(51);
+    mRollerMotor.setInverted(true);
   }
 
   public void setSpeed(double speed) {

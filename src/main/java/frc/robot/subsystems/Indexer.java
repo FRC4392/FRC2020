@@ -23,6 +23,8 @@ public class Indexer extends SubsystemBase {
     mCanifier = new CANifier(42);
 
     mIndexerMotor.burnFlash();
+
+    mIndexerMotor.setInverted(true);
   }
 
   public void setSpeed(double speed) {
