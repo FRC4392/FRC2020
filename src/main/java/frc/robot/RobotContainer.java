@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.*;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.Drivetrain;
+import frc.robot.subsystems.Indexer;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Limelight;
 import frc.robot.subsystems.Shooter;
@@ -30,6 +31,7 @@ public class RobotContainer {
   Drivetrain mDrivetrain = new Drivetrain();
   Climber mClimber = new Climber();
   Intake mIntake = new Intake();
+  Indexer mIndexer = new Indexer();
   Shooter mShooter = new Shooter();
 
   XboxController mDriverController = new XboxController(0);
@@ -63,7 +65,7 @@ public class RobotContainer {
     ManualShootButton.whileHeld(new ManualShootCommand(mShooter));
     ManualShootButton2.whileHeld(new ManualShootCommand2(mShooter));
     ManualShootButton3.whileHeld( new ManualShootCommand3(mShooter));
-    IntakeButton.whileHeld(new IntakeCommand(mIntake));
+    IntakeButton.whileHeld(new IntakeCommand(mIntake, mIndexer));
     OuttakeButton.whileHeld(new OuttakeCommand(mIntake));
   }
 
