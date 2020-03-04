@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.commands.*;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.Drivetrain;
@@ -59,6 +60,7 @@ public class RobotContainer {
     JoystickButton ManualShootButton3 = new JoystickButton(mOperatorController, XboxController.Button.kB.value);
     JoystickButton IntakeButton = new JoystickButton(mOperatorController, XboxController.Button.kBumperLeft.value);
     JoystickButton OuttakeButton = new JoystickButton(mOperatorController, XboxController.Button.kBumperRight.value);
+    Trigger ShootButton = new Trigger(() -> mOperatorController.getTriggerAxis(GenericHID.Hand.kRight) > 0.01);
 
     mDrivetrain.setDefaultCommand(new DriveCommand(mDrivetrain, mDriverController));
     mClimber.setDefaultCommand(new ManualHangCommand(mClimber, mOperatorController));
