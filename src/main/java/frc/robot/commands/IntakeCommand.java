@@ -13,14 +13,10 @@ import frc.robot.subsystems.Intake;
 
 public class IntakeCommand extends CommandBase {
   public final Intake mIntake;
-  public final Indexer mIndexer;
 
-  public IntakeCommand(frc.robot.subsystems.Intake Intake, frc.robot.subsystems.Indexer Indexer) {
+  public IntakeCommand(frc.robot.subsystems.Intake Intake) {
     mIntake = Intake;
     addRequirements(mIntake);
-
-    mIndexer = Indexer;
-    addRequirements(mIndexer);
   }
 
   // Called when the command is initially scheduled.
@@ -32,14 +28,12 @@ public class IntakeCommand extends CommandBase {
   @Override
   public void execute() {
     mIntake.setSpeed(1.0);
-    mIndexer.setSpeed(-0.5);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
     mIntake.setSpeed(0.0);
-    mIndexer.setSpeed(0.0);
   }
 
   // Returns true when the command should end.

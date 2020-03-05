@@ -58,17 +58,21 @@ public class RobotContainer {
     JoystickButton ManualShootButton = new JoystickButton(mOperatorController,XboxController.Button.kX.value);
     JoystickButton ManualShootButton2 = new JoystickButton(mOperatorController, XboxController.Button.kA.value);
     JoystickButton ManualShootButton3 = new JoystickButton(mOperatorController, XboxController.Button.kB.value);
-    JoystickButton IntakeButton = new JoystickButton(mOperatorController, XboxController.Button.kBumperLeft.value);
-    JoystickButton OuttakeButton = new JoystickButton(mOperatorController, XboxController.Button.kBumperRight.value);
-    Trigger ShootButton = new Trigger(() -> mOperatorController.getTriggerAxis(GenericHID.Hand.kRight) > 0.01);
+    JoystickButton OuttakeButton = new JoystickButton(mOperatorController, XboxController.Button.kBumperLeft.value);
+    JoystickButton IntakePositionButton = new JoystickButton(mOperatorController, XboxController.Button.kBumperRight.value);
+    Trigger IntakeButton = new Trigger( () -> mOperatorController.getTriggerAxis(GenericHID.Hand.kLeft) > 0.01 );
+    Trigger ShootButton = new Trigger( () -> mOperatorController.getTriggerAxis(GenericHID.Hand.kRight) > 0.01 );
 
     mDrivetrain.setDefaultCommand(new DriveCommand(mDrivetrain, mDriverController));
     mClimber.setDefaultCommand(new ManualHangCommand(mClimber, mOperatorController));
     ManualShootButton.whileHeld(new ManualShootCommand(mShooter));
     ManualShootButton2.whileHeld(new ManualShootCommand2(mShooter));
     ManualShootButton3.whileHeld( new ManualShootCommand3(mShooter));
-    IntakeButton.whileHeld(new IntakeCommand(mIntake, mIndexer));
+    IntakeButton.whileActiveContinuous(new IntakeCommand(mIntake));
     OuttakeButton.whileHeld(new OuttakeCommand(mIntake));
+    IntakePositionButton.whenPressed(() -> mIntake.lift());
+    IntakePositionButton.whenReleased(() -> mIntake.lower());
+    ShootButton.whileActiveContinuous( () -> mIndexer.setSpeed(0.75));
   }
 
 
