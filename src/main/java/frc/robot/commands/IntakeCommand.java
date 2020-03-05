@@ -32,7 +32,7 @@ public class IntakeCommand extends CommandBase {
   @Override
   public void execute() {
     mIntake.setSpeed(1.0);
-    mIndexer.setSpeed(-0.5);
+    mIndexer.setSpeed(-0.75);
   }
 
   // Called once the command ends or is interrupted.
