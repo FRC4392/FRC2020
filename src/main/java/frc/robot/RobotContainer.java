@@ -10,6 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.StartEndCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.commands.*;
@@ -72,7 +73,7 @@ public class RobotContainer {
     OuttakeButton.whileHeld(new OuttakeCommand(mIntake));
     IntakePositionButton.whenPressed(mIntake::lift);
     IntakePositionButton.whenReleased(mIntake::lower);
-    ShootButton.whileActiveContinuous(() -> mIndexer.setSpeed(0.75));
+    ShootButton.whileActiveContinuous(new StartEndCommand(() -> mIndexer.setSpeed(.75), () -> mIndexer.setSpeed(0)));
   }
 
 
