@@ -34,11 +34,11 @@ public class Indexer extends SubsystemBase {
   }
 
   public boolean getStartEye(){
-    return mCanifier.getGeneralInput(CANifier.GeneralPin.SPI_MOSI_PWM1P);
+    return mCanifier.getGeneralInput(CANifier.GeneralPin.SPI_MISO_PWM2P);
   }
 
   public boolean getEndEye() {
-    return mCanifier.getGeneralInput(CANifier.GeneralPin.SPI_MISO_PWM2P);
+    return mCanifier.getGeneralInput(CANifier.GeneralPin.SPI_MOSI_PWM1P);
   }
 
   @Override

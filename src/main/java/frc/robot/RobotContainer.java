@@ -74,6 +74,8 @@ public class RobotContainer {
     IntakePositionButton.whenPressed(mIntake::lift);
     IntakePositionButton.whenReleased(mIntake::lower);
     ShootButton.whileActiveContinuous(new StartEndCommand(() -> mIndexer.setSpeed(.75), () -> mIndexer.setSpeed(0)));
+
+    mIndexer.setDefaultCommand(new IndexerIndexCommand(mIndexer));
   }
 
 
