@@ -8,6 +8,7 @@ public class IndexerIndexCommand extends CommandBase {
 
     public IndexerIndexCommand(Indexer indexer){
         mIndexer = indexer;
+        addRequirements(mIndexer);
     }
 
     @Override
