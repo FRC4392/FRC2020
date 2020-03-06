@@ -23,7 +23,7 @@ public class Intake extends SubsystemBase {
     mRollerMotor = new VictorSPX(51);
     mRollerMotor.setInverted(true);
 
-    mSolenoid = new Solenoid(3);
+    mSolenoid = new Solenoid(2);
   }
 
   public void setSpeed(double speed) {

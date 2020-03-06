@@ -26,7 +26,7 @@ public class Indexer extends SubsystemBase {
 
     mIndexerMotor.setInverted(true);
 
-    mIndexerMotor.setSmartCurrentLimit(20);
+    mIndexerMotor.setSmartCurrentLimit(15);
   }
 
   public void setSpeed(double speed) {
