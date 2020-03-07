@@ -89,10 +89,10 @@ public class Drivetrain extends SubsystemBase {
 
     swerveDrive.checkAllZeros();
 
-    /*driveOdometry.update(swerveDrive.getHeading(), pod1.getState(), pod2.getState(), pod3.getState(), pod4.getState());
+    driveOdometry.update(swerveDrive.getHeading(), pod1.getState(), pod2.getState(), pod3.getState(), pod4.getState());
 
     SmartDashboard.putNumber("Swerve Y", driveOdometry.getPoseMeters().getTranslation().getY());
     SmartDashboard.putNumber("Swerve X", driveOdometry.getPoseMeters().getTranslation().getX());
-    SmartDashboard.putNumber("Swerve Rotation", driveOdometry.getPoseMeters().getRotation().getDegrees());*/
+    SmartDashboard.putNumber("Swerve Rotation", driveOdometry.getPoseMeters().getRotation().getDegrees());
   }
 }
