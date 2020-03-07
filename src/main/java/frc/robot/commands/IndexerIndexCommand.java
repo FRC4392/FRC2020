@@ -19,7 +19,7 @@ public class IndexerIndexCommand extends CommandBase {
     @Override
     public void execute() {
         if (mIndexer.getStartEye() &! mIndexer.getEndEye()){
-            mIndexer.setSpeed(-.5);
+            mIndexer.setSpeed(-.35);
         } else {
             mIndexer.setSpeed(0);
         }
