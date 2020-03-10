@@ -70,7 +70,7 @@ public class RobotContainer {
     ManualShootButton2.whileHeld(new ManualShootCommand2(mShooter));
     ManualShootButton3.whileHeld( new ManualShootCommand3(mShooter));
     IntakeButton.whileActiveContinuous(new IntakeCommand(mIntake));
-    OuttakeButton.whileHeld(new OuttakeCommand(mIntake));
+    OuttakeButton.whileHeld(new OuttakeCommand(mIntake, mIndexer));
     IntakePositionButton.whenPressed(mIntake::lift);
     IntakePositionButton.whenReleased(mIntake::lower);
     mIndexer.setDefaultCommand(new IndexerIndexCommand(mIndexer));
