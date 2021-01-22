@@ -8,6 +8,7 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.CANifier;
+import com.ctre.phoenix.CANifier.GeneralPin;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
@@ -31,6 +32,10 @@ public class Indexer extends SubsystemBase {
 
   public void setSpeed(double speed) {
     mIndexerMotor.set(speed);
+  }
+
+  public boolean getIntakeEye(){
+    return mCanifier.getGeneralInput(GeneralPin.SPI_CLK_PWM0P);
   }
 
   public boolean getStartEye(){

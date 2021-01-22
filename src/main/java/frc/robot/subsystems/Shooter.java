@@ -25,6 +25,7 @@ public class Shooter extends SubsystemBase {
   CANPIDController mPidController;
   CANEncoder mEncoder;
   Solenoid mSolenoid;
+  private double setpoint;
 
   private Double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput, maxRPM;
 
@@ -57,6 +58,8 @@ public class Shooter extends SubsystemBase {
     mPidController = mWheelMotor.getPIDController();
     mEncoder = mWheelMotor.getEncoder();
 
+    mSolenoid = new Solenoid(0);
+
 
     kP = mRobotPreferences.getDouble("ShooterKP", 0.005);
     kI = mRobotPreferences.getDouble("ShooterKI", 0);
@@ -85,14 +88,20 @@ public class Shooter extends SubsystemBase {
   }
     public void setVelocity(double velocity) {
       mWheelMotor.set(velocity);
+      setpoint = velocity;
     }
 
     public void setPIDVelocity(double velocity) {
       mPidController.setReference(velocity, ControlType.kVelocity);
+      setpoint = velocity;
     }
 
     public void setHood(HoodPosition position){
       mSolenoid.set(position.getSolenoidState());
+    }
+
+    public boolean isAtSpeed(){
+      return (Math.abs(setpoint - mEncoder.getVelocity()) < 100);
     }
     
   @Override

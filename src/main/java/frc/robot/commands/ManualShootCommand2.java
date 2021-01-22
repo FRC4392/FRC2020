@@ -9,6 +9,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Shooter;
+import frc.robot.subsystems.Shooter.HoodPosition;
 
 public class ManualShootCommand2 extends CommandBase {
  public final Shooter mShooter;
@@ -21,18 +22,20 @@ public class ManualShootCommand2 extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+    mShooter.setHood(HoodPosition.Open);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    mShooter.setVelocity(0.68);
+    mShooter.setPIDVelocity(3600);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted){
    mShooter.setVelocity(0.0);
+   mShooter.setHood(HoodPosition.Closed);
   }
 
   // Returns true when the command should end.

@@ -7,9 +7,13 @@
 
 package frc.robot;
 
+import java.util.function.BooleanSupplier;
+
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.FunctionalCommand;
+import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.StartEndCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
@@ -69,13 +73,15 @@ public class RobotContainer {
     ManualShootButton.whileHeld(new ManualShootCommand(mShooter));
     ManualShootButton2.whileHeld(new ManualShootCommand2(mShooter));
     ManualShootButton3.whileHeld( new ManualShootCommand3(mShooter));
-    IntakeButton.whileActiveContinuous(new IntakeCommand(mIntake));
+    IntakeButton.whileActiveContinuous(new IntakeCommand(mIntake, mIndexer));
     OuttakeButton.whileHeld(new OuttakeCommand(mIntake, mIndexer));
     IntakePositionButton.whenPressed(mIntake::lift);
     IntakePositionButton.whenReleased(mIntake::lower);
     mIndexer.setDefaultCommand(new IndexerIndexCommand(mIndexer));
-    ShootButton.whileActiveContinuous(new StartEndCommand(() -> mIndexer.setSpeed(-1), () -> mIndexer.setSpeed(0), mIndexer));
+    ShootButton.whileActiveContinuous(new IndexShoot(mIndexer, mShooter));
   }
+
+
 
 
   /**

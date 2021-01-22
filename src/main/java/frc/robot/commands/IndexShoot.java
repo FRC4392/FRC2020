@@ -8,34 +8,42 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.Indexer;
 import frc.robot.subsystems.Shooter;
-import frc.robot.subsystems.Shooter.HoodPosition;
 
-public class ManualShootCommand3 extends CommandBase {
- public final Shooter mShooter;
+public class IndexShoot extends CommandBase {
+  Indexer mIndexer;
+  Shooter mShooter;
+  /**
+   * Creates a new IndexShoot.
+   */
+  public IndexShoot(Indexer indexer, Shooter shooter) {
+    // Use addRequirements() here to declare subsystem dependencies.
+    mIndexer = indexer;
+    mShooter = shooter;
 
-  public ManualShootCommand3(Shooter Shooter) {
-    mShooter = Shooter;
-    addRequirements(mShooter);
+    addRequirements(mIndexer);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    mShooter.setHood(HoodPosition.Open);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    mShooter.setPIDVelocity(3600.00);
+    if (mShooter.isAtSpeed()){
+      mIndexer.setSpeed(-1);
+    } else {
+      mIndexer.setSpeed(0);
+    }
   }
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted){
-   mShooter.setVelocity(0.0);
-   mShooter.setHood(HoodPosition.Closed);
+  public void end(boolean interrupted) {
+    mIndexer.setSpeed(0);
   }
 
   // Returns true when the command should end.
